@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Profile from "./Profile";
 import { AnimatePresence } from "framer-motion";
-function Header() {
+function Header({openSide}) {
   const [showProfile, setShowProfile] = useState(false);
   return (
     <nav class="bg-white pr-4 flex items-center justify-between h-[55px] border-b border-gray-200 fixed z-30 w-full">
@@ -9,7 +9,7 @@ function Header() {
         <div class="flex items-center h-full justify-between">
           <div class="flex items-center h-full justify-start">
             <button
-              id="toggleSidebarMobile"
+              onClick={()=>openSide(v=>!v)}
               aria-expanded="true"
               aria-controls="sidebar"
               class="lg:hidden mr-2 text-gray-600 hover:text-gray-900 cursor-pointer p-2 hover:bg-gray-100 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 rounded"
@@ -53,35 +53,11 @@ function Header() {
               <span class="self-center whitespace-nowrap">ENS</span>
             </a>
           </div>
-          <div class="flex items-center">
-            <button
-              id="toggleSidebarMobileSearch"
-              type="button"
-              class="lg:hidden text-gray-500 hover:text-gray-900 hover:bg-gray-100 p-2 rounded-lg"
-            >
-              <span class="sr-only">Search</span>
-              <svg
-                class="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
-            <div class="hidden lg:flex items-center">
-              <div class="-mb-1"></div>
-            </div>
-          </div>
         </div>
       </div>
 
       <div class=" max-h-[44px] flex gap-3 relative items-center">
-        <div class="relative group shrink-0 max-w-xs">
+        <div class="relative lg:flex hidden group shrink-0 max-w-xs">
           <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
             <svg
               xmlns="http://www.w3.org/2000/svg"

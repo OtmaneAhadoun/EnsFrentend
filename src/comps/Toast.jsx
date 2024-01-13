@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-function Toast({ off, success, error, text }) {
+function Toast({ off, success, error, message }) {
   useEffect(() => {
     setTimeout(() => {
       off(false);
@@ -29,7 +29,7 @@ function Toast({ off, success, error, text }) {
           </svg>
         </div>
         <div class="ms-3">
-          <p class="text-sm text-gray-700 font-semibold capitalize">Proffeseur added succesfully</p>
+          <p class="text-sm text-gray-700 font-semibold capitalize">{message} added succesfully</p>
         </div>
       </div>
     </motion.div>

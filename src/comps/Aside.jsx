@@ -1,44 +1,82 @@
-import React from "react";
-import Maxios from "../assets/maxios";
-import { useNavigate } from "react-router-dom";
-
-function Aside() {
-
+import React, { useEffect } from "react";
+function Aside({ off, isOpen }) {
+  useEffect(() => {
+    if (isOpen) {
+      document.documentElement.style.overflow = "hidden";
+      return () => {
+        document.documentElement.style.overflow = "auto";
+      };
+    }
+  });
   return (
     <aside
-      id="sidebar"
-      class="fixed hidden z-20 h-full top-0 left-0 pt-11 flex lg:flex flex-shrink-0 flex-col w-56 transition-width duration-75"
+
+      // transition={{ duration: 0.2 }}
+      class={`fixed ${
+        isOpen ? "flex" : "hidden"
+      } z-20 h-full top-0 left-0 pt-11 lg:flex  flex-shrink-0 flex-col w-56 transition-width duration-75`}
       aria-label="Sidebar"
     >
-      <div class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white pt-0">
+      <div
+        onClick={() => off(false)}
+        className=" absolute flex lg:hidden inset-0 w-screen h-screen bg-[#00000080]"
+      ></div>
+      <div
+        onClick={(e) => e.stopPropagation()}
+        class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white pt-0"
+      >
         <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
           <div class="flex-1 px-3 bg-white divide-y space-y-1">
             <ul class="space-y-2 pb-2">
               <li>
-                <form action="#" method="GET" class="lg:hidden">
-                  <label for="mobile-search" class="sr-only">
-                    Search
-                  </label>
-                  <div class="relative">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <svg
-                        class="w-5 h-5 text-gray-500"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                      </svg>
-                    </div>
-                    <input
-                      type="text"
-                      name="email"
-                      id="mobile-search"
-                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-600 focus:ring-teal-600 block w-full pl-10 p-2.5"
-                      placeholder="Search"
-                    />
+                <div class="relative lg:hidden flex  group shrink-0 max-w-xs">
+                  <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-4 group-hover:text-teal-600 transition-all h-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                      />
+                    </svg>
                   </div>
-                </form>
+                  <input
+                    type="text"
+                    class="py-2 border transition-all  border-gray-200 outline-none text-gray-800 px-3 placeholder:text-gray-400 ps-10 pe-14 block w-full rounded-lg text-sm  shadow-sm "
+                    placeholder="Search...."
+                    data-hs-overlay="#hs-pro-dnsm"
+                  />
+                  <div class="absolute inset-y-0 end-0 flex items-center pointer-events-none z-20 pe-3">
+                    <span class="flex flex-wrap items-center gap-x-1 text-sm text-gray-400 dark:text-gray-600">
+                      <kbd class="min-h-[30px] inline-flex justify-center items-center font-mono text-xs text-gray-400 rounded-md dark:text-gray-600">
+                        <svg
+                          class="flex-shrink-0 group-hover:text-teal-600 transition-all w-3 h-3"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"></path>
+                        </svg>
+                      </kbd>
+                      +
+                      <kbd class="min-h-[30px] group-hover:text-teal-600 transition-all inline-flex justify-center items-center font-mono text-xs text-gray-400 rounded-md dark:text-gray-600">
+                        /
+                      </kbd>
+                    </span>
+                  </div>
+                </div>
               </li>
               <li>
                 <a
@@ -71,7 +109,9 @@ function Aside() {
                   >
                     <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
                   </svg>
-                  <span class="ml-3 flex-1 whitespace-nowrap capitalize">Affecter emploi</span>
+                  <span class="ml-3 flex-1 whitespace-nowrap capitalize">
+                    Affecter emploi
+                  </span>
                 </a>
               </li>
               <li>

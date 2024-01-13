@@ -16,7 +16,7 @@ import TimePicher from "./comps/TimePicher";
 function Dahboard() {
   const [user, setUser] = useState(null);
   const [Loading, setLoading] = useState(true);
-  const [toast, setToast] = useState(false);
+  const [openSide, setOpenSide] = useState(false);
   const navigate = useNavigate(); // Get the navigate function
   useEffect(() => {
     (async () => {
@@ -39,12 +39,9 @@ function Dahboard() {
         <Load></Load>
       ) : (
         <>
-          <AnimatePresence>
-            {toast && <Toast off={setToast}></Toast>}
-          </AnimatePresence>
-          <Header></Header>
+          <Header openSide={setOpenSide}></Header>
           <div class="flex overflow-hidden bg-white pt-11">
-            <Aside></Aside>
+            <Aside off={setOpenSide} isOpen={openSide}></Aside>
             {/* <div
               class="bg-gray-900 opacity-50 hidden fixed inset-0 z-10"
               id="sidebarBackdrop"
@@ -52,24 +49,23 @@ function Dahboard() {
             <div
               id="main-content"
               class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-56"
-              >
+            >
               <main>
                 <div class="p-3">
                   <TimePicher></TimePicher>
                   <ListeDash></ListeDash>
-                  <PreSelect/>
+                  <PreSelect />
 
                   <div className=" flex-wrap flex gap-3 py-3">
                     <ListeFiliere></ListeFiliere>
-                    <ProfTable setToast={setToast}></ProfTable>
+                    <ProfTable></ProfTable>
                     {/* <ListeStudents></ListeStudents> */}
                   </div>
-
                 </div>
               </main>
               <Footer></Footer>
               <p class="text-center text-sm text-gray-500 my-10">
-                &copy; 2024-2024{" "}
+                &copy; 2024-2024
                 <a href="#" class="hover:underline" target="_blank">
                   Ecole Normale Superieur
                 </a>

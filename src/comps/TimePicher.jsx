@@ -1,5 +1,6 @@
 import React from "react";
 import DateArea from "./DateArea";
+import DropDown from "./DropDown";
 
 function TimePicher() {
   const daysOfWeek = [
@@ -13,7 +14,7 @@ function TimePicher() {
 
   return (
     <div className="flex flex-col shadow mt-3 bg-white rounded-lg ">
-      <div className=" flex">
+      <div className=" flex w-full overflow-x-auto">
         {daysOfWeek.map((day) => (
           <DateArea day={day}></DateArea>
         ))}
@@ -75,59 +76,7 @@ function TimePicher() {
             </div>
           </label>
         </div>
-        <div class="hs-dropdown relative bg-white inline-flex">
-          <button
-            id="hs-dropdown-default"
-            type="button"
-            class=" py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-black shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none "
-          >
-            Filiere
-            <svg
-              class="hs-dropdown-open:rotate-180 w-4 h-4"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m6 9 6 6 6-6" />
-            </svg>
-          </button>
-
-          <div
-            class=" transition-[opacity,margin]  bg-white rounded-lg duration w-36 absolute opacity-1 right-0 top-[107%] shadow p-1.5"
-            aria-labelledby="hs-dropdown-default"
-          >
-            <a
-              class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-              href="#"
-            >
-              Newsletter
-            </a>
-            <a
-              class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-              href="#"
-            >
-              Purchases
-            </a>
-            <a
-              class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-              href="#"
-            >
-              Downloads
-            </a>
-            <a
-              class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
-              href="#"
-            >
-              Team Account
-            </a>
-          </div>
-        </div>
+        <DropDown></DropDown>
         <button className="focus:outline-none m-1.5 font-semibold focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition duration-150 ease-in-out hover:bg-teal-700 bg-teal-600 rounded-lg text-white px-4 py-2.5 text-sm">
           Save Plan
         </button>

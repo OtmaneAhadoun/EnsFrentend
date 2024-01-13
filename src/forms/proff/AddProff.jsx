@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 import Maxios from "../../assets/maxios";
 import Load from "../../comps/Load";
 import audio from "../../assets/audio/success_bell-6776.mp3";
-function AddProff({ setToast, off }) {
+function AddProff({ done, setToast, off }) {
   const [data, setData] = useState({});
   const [seending, setSending] = useState(false);
+  const [error, setError] = useState({});
   const play = useRef();
   const getData = ({ target }) => {
     const { name, value } = target;
@@ -13,7 +14,6 @@ function AddProff({ setToast, off }) {
   };
   const submitForm = async (e) => {
     e.preventDefault();
-    console.log(data);
 
     const readyData = new FormData();
     readyData.append("nom", data.nom);
@@ -28,10 +28,11 @@ function AddProff({ setToast, off }) {
       await Maxios.post("/professeur", readyData);
       play.current.play();
       setToast(true);
+      done((v) => !v);
       off(true);
-    } catch (err) {
+    } catch (error) {
       setSending(false);
-      console.log(err);
+      setError(error.response.data);
     }
   };
 
@@ -59,6 +60,51 @@ function AddProff({ setToast, off }) {
         onClick={(e) => e.stopPropagation()}
         className="absolute font-medium bg-white rounded-lg inset-0 h-fit m-auto max-w-md w-[98%] "
       >
+        {error.message && (
+          <div
+            class="  relative m-3 mb-0 bg-white border rounded-xl shadow-sm "
+            role="alert"
+          >
+            <div class="flex p-[15px]  items-center">
+              <div class="flex-shrink-0">
+                <svg
+                  class="flex-shrink-0 h-4 w-4 text-red-500 mt-0.5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                </svg>
+              </div>
+              <div class="ms-3">
+                <p class="text-sm text-black font-semibold capitalize">
+                  {error.message}
+                </p>
+              </div>
+              <span
+                onClick={() => setError(false)}
+                className=" absolute bottom-[9px] inline-flex items-center justify-center w-8 mt-auto right-2  h-8 hover:bg-gray-100 transition-all duration-100 rounded-full  cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18 18 6M6 6l12 12"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        )}
         <div className=" overflow-y-auto gap-2 flex-col p-3 h-full relative flex ">
           <audio ref={play} src={audio}></audio>
           <div className=" flex gap-2 w-full">
