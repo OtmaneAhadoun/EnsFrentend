@@ -33,7 +33,7 @@ function Profile({off}) {
       transition={{ duration: 0.2 }}
       exit={{ y: -20, opacity: 0 }}
       onClick={(e) => e.stopPropagation()}
-      class=" absolute top-full right-0 duration w-[200px] bg-white shadow-md rounded-lg p-2 mt-1  "
+      class=" absolute top-full right-0 border-t  duration w-[200px] bg-white shadow-md rounded-lg p-2 mt-1  "
     >
       <div class="py-2 first:pt-0 overflow-hidden font-medium last:pb-0">
         <a

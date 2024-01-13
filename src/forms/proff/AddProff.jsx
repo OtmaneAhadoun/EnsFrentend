@@ -1,14 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-
-function AddProff({ off }) {
+import Maxios from "../../assets/maxios";
+import Load from "../../comps/Load";
+import audio from "../../assets/audio/success_bell-6776.mp3";
+function AddProff({ setToast, off }) {
   const [data, setData] = useState({});
+  const [seending, setSending] = useState(false);
+  const play = useRef();
   const getData = ({ target }) => {
     const { name, value } = target;
+    setData((prev) => ({ ...prev, [name]: value }));
   };
+  const submitForm = async (e) => {
+    e.preventDefault();
+    console.log(data);
+
+    const readyData = new FormData();
+    readyData.append("nom", data.nom);
+    readyData.append("prenom", data.prenom);
+    readyData.append("email", data.email);
+    readyData.append("adresse", data.adresse);
+    readyData.append("image", data.image);
+
+    try {
+      setSending(true);
+      await Maxios.post("/professeur", readyData);
+      play.current.play();
+      setToast(true);
+      off(true);
+    } catch (err) {
+      setSending(false);
+      console.log(err);
+      play.current.play();
+      setToast(true);
+    }
+  };
+
   const getFile = ({ target }) => {
     const blob = URL.createObjectURL(target.files[0]);
-    setData(v=>({...v,[target.name]:blob}))
+    setData((v) => ({ ...v, [target.name]: target.files[0], file: blob }));
   };
   useEffect(() => {
     document.documentElement.style.overflow = "hidden";
@@ -19,23 +49,25 @@ function AddProff({ off }) {
   return (
     <motion.div
       onClick={off}
-      className="fixed w-full inset-0 z-50 bg-[#00000080] p-2 h-screen"
+      className="fixed w-full inset-0 z-50 bg-[#00000080]  h-screen"
     >
-      <motion.div
+      <motion.form
+        onSubmit={submitForm}
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.2 }}
         exit={{ opacity: 0, y: -40 }}
         onClick={(e) => e.stopPropagation()}
-        className="absolute font-medium bg-white rounded-lg inset-0 m-auto max-w-sm w-[98%] h-[calc(100vh-25px)]"
+        className="absolute font-medium bg-white rounded-lg inset-0 h-fit m-auto max-w-md w-[98%] "
       >
-        <div className=" overflow-y-auto h-full relative flex flex-col">
-          <div className="overflow-y-auto p-2 flex flex-col">
-            <div className=" w-full flex justify-center items-center">
+        <div className=" overflow-y-auto gap-2 flex-col p-3 h-full relative flex ">
+          <audio ref={play} src={audio}></audio>
+          <div className=" flex gap-2 w-full">
+            <div className="  h-fit flex justify-center items-center">
               <label
                 title="ajouter image de le proffesseur"
-                htmlFor="img"
-                className=" relative overflow-hidden mt-1 hover:text-teal-600 justify-center items-center text-teal-600 transition-all cursor-pointer border-teal-600 border-2 shrink-0 w-24 inline-flex h-20 border-dashed rounded-xl"
+                htmlFor="image"
+                className=" relative overflow-hidden hover:text-teal-600 justify-center items-center text-teal-600 transition-all cursor-pointer border-teal-600 border-[3px] shrink-0 w-32 inline-flex h-32 border-dashed rounded-xl"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -52,93 +84,72 @@ function AddProff({ off }) {
                   />
                 </svg>
                 {data.file && (
-                  <img src={data.file} className="absolute object-cover w-full h-full" alt="" />
+                  <img
+                    src={data.file}
+                    className="absolute object-cover w-full h-full"
+                    alt=""
+                  />
                 )}
               </label>
-              <input onChange={getFile} type="file" hidden name="file" id="img" />
-            </div>
-            <div className=" w-full">
-              <label
-                htmlFor="email"
-                className="block  leading-6 text-sm text-gray-900"
-              >
-                Nom
-              </label>
               <input
-                id="email"
-                name="email"
+                onChange={getFile}
+                type="file"
+                hidden
+                name="image"
+                id="image"
+              />
+            </div>
+            <div className=" flex w-full flex-col gap-1">
+              <input
+                id="nom"
+                name="nom"
                 autoComplete="false"
                 placeholder="Nom..."
-                // onChange={getData}
-                className="mt-[3px] text-sm appearance-none text-slate-900 bg-white rounded-md block w-full px-3 h-10 shadow-sm sm: focus:outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-teal-500 ring-1 ring-slate-200"
+                onChange={getData}
+                className=" text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded-lg border"
               />
-            </div>
-            <div className=" mt-1.5 w-full">
-              <label
-                htmlFor="email"
-                className="block  leading-6 text-sm text-gray-900"
-              >
-                Prenom
-              </label>
+
               <input
-                id="email"
-                name="email"
+                id="prenom"
+                name="prenom"
                 placeholder="Prenom..."
                 autoComplete="false"
-                // onChange={getData}
-                className="mt-[3px] appearance-none text-sm text-slate-900 bg-white rounded-md block w-full px-3 h-10 shadow-sm focus:outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-teal-500 ring-1 ring-slate-200"
+                onChange={getData}
+                className=" text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded-lg border"
               />
-            </div>
-
-            <div className="mt-1.5">
-              <label
-                htmlFor="email"
-                className="block leading-6 text-sm text-gray-900"
-              >
-                Email
-              </label>
               <input
-                name="email"
-                id="email"
-                placeholder="Email..."
-                // onChange={getData}
-                className="mt-[3px] appearance-none text-sm text-slate-900 bg-white rounded-md block w-full px-3 h-10 shadow-sm sm: focus:outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-teal-500 ring-1 ring-slate-200"
+                id="num_telephone"
+                name="num_telephone"
+                autoComplete="false"
+                placeholder="Numero Telephone..."
+                onChange={getData}
+                className=" text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded-lg border"
               />
-            </div>
-            <div className="mt-1.5">
-              <label
-                htmlFor="email"
-                className="block leading-6 text-sm text-gray-900"
-              >
-                Numero telepHone
-              </label>
-              <input
-                name="email"
-                id="email"
-                placeholder="Numero telephone..."
-                // onChange={getData}
-                className="mt-[3px] appearance-none text-sm text-slate-900 bg-white rounded-md block w-full px-3 h-10 shadow-sm sm: focus:outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-teal-500 ring-1 ring-slate-200"
-              />
-            </div>
-            <div className=" text-sm mt-1.5">
-              <label htmlFor="" className="">
-                Addresse
-              </label>
-              <textarea
-                name=""
-                placeholder="Addresse..."
-                id=""
-                className="mt-[3px] p-2 h-28 text-sm resize-none appearance-none text-slate-900 bg-white rounded-md block w-full px-3 shadow-sm sm: focus:outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-teal-500 ring-1 ring-slate-200"
-              ></textarea>
             </div>
           </div>
-          <div className=" absolute  text-[14px] bottom-0 left-0 p-2 flex justify-end w-full ">
-            <button className=" font-semibold w-fit p-2 px-4 bg-teal-600 hover:bg-teal-700 transition-all text-white rounded-lg">
-              Ajouter
+          <div className=" flex flex-col gap-2">
+            <input
+              name="email"
+              id="email"
+              placeholder="Email..."
+              onChange={getData}
+              className=" text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded-lg border"
+            />
+            <textarea
+              name="adresse"
+              placeholder="Adresse..."
+              onChange={getData}
+              className=" text-gray-600 h-20 py-2 resize-none focus:outline-none focus:border focus:border-teal-700 font-normal w-full flex items-center pl-3 text-sm border-gray-300 rounded-lg border"
+            ></textarea>
+          </div>
+
+          <div className="   text-[14px]  flex justify-end w-full ">
+            <button className="relative w-20 h-[38px] font-semibold p-2 px-4 bg-teal-600 hover:bg-teal-700 transition-all text-white rounded-lg">
+              {seending ? <Load></Load> : "Ajouter"}
             </button>
           </div>
         </div>
-      </motion.div>
+      </motion.form>
     </motion.div>
   );
 }

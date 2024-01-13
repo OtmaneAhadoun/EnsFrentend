@@ -4,8 +4,8 @@ import { AnimatePresence } from "framer-motion";
 function Header() {
   const [showProfile, setShowProfile] = useState(false);
   return (
-    <nav class="bg-white pr-4 flex items-center justify-between h-[53px] border-b border-gray-200 fixed z-30 w-full">
-      <div class="px-3 py-1 lg:px-5  h-full lg:pl-3">
+    <nav class="bg-white pr-4 flex items-center justify-between h-[55px] border-b border-gray-200 fixed z-30 w-full">
+      <div class="px-3 py-1 lg:px-5 h-full lg:pl-3">
         <div class="flex items-center h-full justify-between">
           <div class="flex items-center h-full justify-start">
             <button
@@ -139,8 +139,8 @@ function Header() {
             src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
             alt="Maria" name="openProfiel" 
           />
-          <span onClick={()=> {console.log('sdf')}} class="text--800 bg-gree text-sm max-w-[7.5rem] " name="openProfiel">Mahmoudi</span>
-          <svg
+          <a  class="text--800 bg-gree text-sm max-w-[7.5rem] truncate w-16 " name="openProfiel">Mahmoudi</a>
+          <svg onClick={()=>setShowProfile(v=>!v)}
             class="hs-dropdown-open:rotate-180 w-4 h-4"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -152,7 +152,7 @@ function Header() {
             stroke-linecap="round"
             stroke-linejoin="round" name="openProfiel"
           >
-            <path d="m6 9 6 6 6-6" name="openProfiel" />
+            <path onClick={()=>setShowProfile(v=>!v)} d="m6 9 6 6 6-6" name="openProfiel" />
           </svg>
           <AnimatePresence>
             {showProfile && <Profile off={setShowProfile}></Profile>}

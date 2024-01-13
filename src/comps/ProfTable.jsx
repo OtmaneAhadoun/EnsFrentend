@@ -1,32 +1,32 @@
 import React, { useState } from "react";
 import AddProff from "../forms/proff/AddProff";
 import { AnimatePresence } from "framer-motion";
-function ProfTable() {
+function ProfTable({ setToast }) {
   const [show, setShow] = useState(false);
   const showAddForm = () => {
     setShow((oldValue) => !oldValue);
   };
   return (
-    <div class="grid grid-cols-1 2xl:grid-cols-2 xl:gap-4 my-4">
+    <div class="grid grid-cols-1 grow  2xl:grid-cols-2  xl:gap-4">
       <AnimatePresence>
-        {show && <AddProff off={showAddForm}></AddProff>}
+        {show && <AddProff setToast={setToast} off={showAddForm}></AddProff>}
       </AnimatePresence>
-      <div class="bg-white shadow rounded-lg mb-4 p-4 sm:p-6 h-full">
-        <div class="flex items-center justify-between mb-4">
+      <div class="bg-white shadow rounded-lg p-3  h-full">
+        <div class="flex items-center justify-between mb-2">
           <h3 class="text-xl font-bold leading-none text-gray-900">
             All Professeur
           </h3>
           <div className="flex gap-2">
             <button
               href="#"
-              class="text-sm font-medium text-teal-600 hover:bg-gray-100 rounded-lg inline-flex items-center p-2"
+              class="text-sm font-medium text-teal-600 hover:bg-gray-100 rounded-lg inline-flex items-center p-2.5 px-3"
             >
               View all
             </button>
             <button
               onClick={showAddForm}
               href="#"
-              class="text-sm font-medium bg-teal-600 text-white hover:bg-teal-700 rounded-lg inline-flex items-center p-2"
+              className="focus:outline-none font-semibold focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition duration-150 ease-in-out hover:bg-teal-700 bg-teal-600 rounded-lg text-white px-4 py-2 text-sm"
             >
               Ajouter Professeur
             </button>
@@ -177,27 +177,34 @@ function ProfTable() {
           </ul>
         </div>
       </div>
-      <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
-        <h3 class="text-xl leading-none font-bold text-gray-900 mb-10">
-          Acquisition Overview
-        </h3>
+      <div class="bg-white shadow rounded-lg p-3 ">
+        <div className=" flex justify-between items-center">
+          <h3 class="text-xl leading-none font-bold text-gray-900 my-4">
+            Module
+          </h3>
+          <button className="focus:outline-none font-semibold focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition duration-150 ease-in-out hover:bg-teal-700 bg-teal-600 rounded-lg text-white px-4 py-2.5 text-sm">
+            Ajouter Module
+          </button>
+        </div>
         <div class="block w-full overflow-x-auto">
           <table class="items-center w-full bg-transparent border-collapse">
             <thead>
               <tr>
                 <th class="px-4 bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap">
-                  Top Channels
+                  Module
                 </th>
                 <th class="px-4 bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap">
-                  Users
+                  filiere
                 </th>
-                <th class="px-4 bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap min-w-140-px"></th>
+                <th class="px-4 bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap min-w-140-px">
+                  mass horaire
+                </th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
               <tr class="text-gray-500">
                 <th class="border-t-0 px-4 align-middle text-sm font-normal whitespace-nowrap p-4 text-left">
-                  Organic Search
+                  Referral
                 </th>
                 <td class="border-t-0 px-4 align-middle text-xs font-medium text-gray-900 whitespace-nowrap p-4">
                   5,649

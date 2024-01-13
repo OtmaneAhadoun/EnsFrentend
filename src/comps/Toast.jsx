@@ -1,9 +1,18 @@
-import React from "react";
-
-function Toast() {
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+function Toast({ off, success, error, text }) {
+  useEffect(() => {
+    setTimeout(() => {
+      off(false);
+    }, 3000);
+  }, []);
   return (
-    <div
-      class="max-w-xs bg-white border border-gray-200 rounded-xl shadow-lg  dark:border-gray-200"
+    <motion.div
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.3 }}
+      exit={{ opacity: 0, x: -100 }}
+      class="max-w-xs fixed z-[100] top-2 left-2 bg-white border border-gray-200 rounded-lg shadow-lg  dark:border-gray-200"
       role="alert"
     >
       <div class="flex p-4">
@@ -20,10 +29,10 @@ function Toast() {
           </svg>
         </div>
         <div class="ms-3">
-          <p class="text-sm text-gray-700">Proffeseur added succesfully</p>
+          <p class="text-sm text-gray-700 font-semibold capitalize">Proffeseur added succesfully</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
