@@ -19,6 +19,7 @@ function AddProff({ setToast, off }) {
     readyData.append("nom", data.nom);
     readyData.append("prenom", data.prenom);
     readyData.append("email", data.email);
+    readyData.append("num_telephone", data.num_telephone);
     readyData.append("adresse", data.adresse);
     readyData.append("image", data.image);
 
@@ -31,8 +32,6 @@ function AddProff({ setToast, off }) {
     } catch (err) {
       setSending(false);
       console.log(err);
-      play.current.play();
-      setToast(true);
     }
   };
 
