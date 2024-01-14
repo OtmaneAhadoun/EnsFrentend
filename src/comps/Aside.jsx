@@ -14,12 +14,12 @@ function Aside({ off, isOpen }) {
       // transition={{ duration: 0.2 }}
       class={`fixed ${
         isOpen ? "flex" : "hidden"
-      } z-20 h-full top-0 left-0 pt-11 lg:flex  flex-shrink-0 flex-col w-56 transition-width duration-75`}
+      }  h-full top-0 left-0 pt-[54px] lg:flex  z-[60] flex-shrink-0 flex-col w-56 transition-width duration-75`}
       aria-label="Sidebar"
     >
       <div
         onClick={() => off(false)}
-        className=" absolute flex lg:hidden inset-0 w-screen h-screen bg-[#00000080]"
+        className=" absolute flex lg:hidden inset-0 w-screen h-screen  bg-[#00000080]"
       ></div>
       <div
         onClick={(e) => e.stopPropagation()}

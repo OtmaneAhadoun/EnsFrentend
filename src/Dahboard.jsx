@@ -34,12 +34,12 @@ function Dahboard() {
     })();
   }, []);
   return (
-    <div className=" w-full font-webFont min-h-screen">
+    <div className=" w-full scrollbar-thin scrollbar-thumb-teal-600  font-webFont min-h-screen">
       {Loading ? (
         <Load></Load>
       ) : (
         <>
-          <Header openSide={setOpenSide}></Header>
+          <Header user={user} openSide={setOpenSide}></Header>
           <div class="flex overflow-hidden bg-white pt-11">
             <Aside off={setOpenSide} isOpen={openSide}></Aside>
             {/* <div

@@ -50,7 +50,7 @@ function AddFiliere({ done,off,setToast }) {
         onClick={() => {
           off(false);
         }}
-        className="py-12 bg-[#00000080] fixed  z-50 inset-0"
+        className="py-12 bg-[#00000080] fixed  z-[200] inset-0"
       >
         <motion.form
           initial={{ y: -40, opacity: 0 }}

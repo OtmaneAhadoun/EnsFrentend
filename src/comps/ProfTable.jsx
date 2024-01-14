@@ -27,7 +27,7 @@ function ProfTable() {
     setShow((oldValue) => !oldValue);
   };
   return (
-    <div class=" flex flex-col gap-2 grow xl:gap-4">
+    <div class=" flex flex-col shrink-0 gap-2 grow xl:gap-4">
       <AnimatePresence>
         {toast && <Toast message={"Professeur"} off={setToast}></Toast>}
         {show && (

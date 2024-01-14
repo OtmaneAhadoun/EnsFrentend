@@ -1,25 +1,58 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import DropDown from "../comps/DropDown";
 function InitSession({ off, data }) {
   const [nestedData, setNestedData] = useState({ ...data });
   const [error, setError] = useState({ error: null, message: null });
-
   const getData = ({ target }) => {
     const { name, value } = target;
-    setNestedData((v) => ({ ...v, [name]: value }));
+    setNestedData((v) => ({
+      ...v,
+      evening: { ...v.evening, [name]: value },
+    }));
+
+    setNestedData((v) => ({
+      ...v,
+      morning: { ...v.morning, [name]: value },
+    }));
   };
   const getDataTime = ({ target }) => {
     const { name, value } = target;
-    setNestedData((v) => ({ ...v, session: { ...v.session, [name]: value } }));
+    if (value >= "13:00" && value <= "17:00") {
+      setNestedData((v) => ({
+        ...v,
+        evening: {
+          ...v.evening,
+          session: { ...v.evening.session, [name]: value },
+        },
+      }));
+      return;
+    }
+    if (value <= "12:00" && value >= "09:00") {
+      setNestedData((v) => ({
+        ...v,
+        morning: {
+          ...v.morning,
+          session: { ...v.morning.session, [name]: value },
+        },
+      }));
+      return;
+    }
   };
   const Submit = (e) => {
+    console.log(nestedData);
     e.preventDefault();
     if (
-      !nestedData?.session &&
-      !nestedData?.session?.end &&
-      !nestedData?.session?.start &&
-      !nestedData?.module &&
-      !nestedData?.prof
+      (!nestedData.evening?.session &&
+        !nestedData.evening?.session?.end &&
+        !nestedData.evening?.session?.start &&
+        !nestedData.evening?.module &&
+        !nestedData.evening?.prof) ||
+      (!nestedData.morning?.session &&
+        !nestedData.morning?.session?.end &&
+        !nestedData.morning?.session?.start &&
+        !nestedData.morning?.module &&
+        !nestedData.morning?.prof)
     ) {
       setError({
         error: "empty",
@@ -28,18 +61,43 @@ function InitSession({ off, data }) {
       return;
     }
     if (
+      nestedData.morning?.session &&
+      nestedData.morning?.module &&
+      nestedData.morning?.prof &&
+      nestedData.morning?.session?.start >= "09:00" &&
+      nestedData.morning?.session?.end <= "12:00"
+    ) {
+      data((v) => ({ ...v, morning: { ...nestedData.morning } }));
+      off(false);
+      return;
+    }
+    if (
+      nestedData.evening?.session &&
+      nestedData.evening.module &&
+      nestedData.evening.prof &&
+      nestedData.evening?.session?.start >= "13:00" &&
+      nestedData.evening?.session?.end <= "17:00"
+    ) {
+      data((v) => ({ ...v, evening: { ...nestedData.evening } }));
+      off(false);
+      return;
+    }
+    if (
       nestedData?.session &&
       nestedData?.session?.end <= "17:00" &&
       nestedData?.session?.start >= "09:00" &&
       nestedData?.module &&
-      nestedData?.prof
+      nestedData?.prof &&
+      nestedData?.session?.start >= "13:00"
     ) {
-      data(nestedData);
+      data((v) => ({ ...v, evening: { ...nestedData } }));
       off(false);
       return;
     }
+
     setError({ error: "invalid", message: "Les Doness Sont Invalide" });
   };
+
   useEffect(() => {
     document.documentElement.style.overflow = "hidden";
     return () => {
@@ -52,7 +110,7 @@ function InitSession({ off, data }) {
         onClick={() => {
           off(false);
         }}
-        className="py-12 bg-[#00000080] fixed  z-50 inset-0"
+        className="py-12 bg-[#00000080] fixed  z-[100] inset-0"
       >
         <motion.form
           initial={{ y: -40, opacity: 0 }}
@@ -110,32 +168,50 @@ function InitSession({ off, data }) {
                 </div>
               </div>
             )}
-            <label
-              htmlFor="module"
-              className="text-black  text-sm font-bold leading-tight tracking-normal"
-            >
-              Module
-            </label>
-            <input
+
+            <div className=" flex flex-col gap-2 my-1 mb-2">
+              <label
+                htmlFor="module"
+                className="text-black  text-sm font-bold leading-tight tracking-normal"
+              >
+                Module
+              </label>
+              {/* <input
               id="module"
               className="my-1 text-gray-600 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded-lg border"
               placeholder="..."
               name="module"
               onChange={getData}
-            />
-            <label
-              htmlFor="prof"
-              className="text-black text-sm font-bold leading-tight tracking-normal"
-            >
-              Professeur
-            </label>
-            <input
+            /> */}
+              <DropDown
+                setModule={setNestedData}
+                nom={"Module"}
+                size={"w-[100%] left-0"}
+                route={"module"}
+              ></DropDown>
+            </div>
+            <div className=" flex flex-col gap-2 my-1">
+              <label
+                htmlFor="prof"
+                className="text-black text-sm font-bold leading-tight tracking-normal"
+              >
+                Professeur
+              </label>
+              <DropDown
+                setProf={setNestedData}
+                nom={"Professeur"}
+                size={"w-[100%] left-0"}
+                route={"professeur"}
+                
+              ></DropDown>
+            </div>
+            {/* <input
               id="prof"
               className="text-gray-600 my-1 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded-lg border"
               placeholder="..."
               name="prof"
               onChange={getData}
-            />
+            /> */}
             <label
               htmlFor="expiry"
               className="text-black  text-sm font-bold leading-tight tracking-normal"

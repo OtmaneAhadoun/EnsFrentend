@@ -11,7 +11,6 @@ function ListeFiliere() {
   const [loadData, setLoadData] = useState(true);
   const [open, setOpen] = useState(false);
   const [toast, setToast] = useState(false);
-
   useEffect(() => {
     (async () => {
       setLoad(true)
@@ -26,7 +25,7 @@ function ListeFiliere() {
     console.log(data);
   }, [loadData]);
   return (
-    <div class="bg-white shadow  overflow-hidden rounded-lg p-3  grow  ">
+    <div class="bg-white shadow shrink-0  overflow-hidden rounded-lg p-3 grow md:basis-[500px] w-full  ">
       <AnimatePresence>
         {toast && <Toast message={"filiere"} off={setToast}></Toast>}
 
@@ -38,7 +37,7 @@ function ListeFiliere() {
           ></AddFiliere>
         )}
       </AnimatePresence>
-      <div class="mb-4 flex items-center justify-between">
+      <div class="mb-4 w-full flex items-center justify-between">
         <div>
           <h3 class="text-xl font-bold text-black">Liste Filiere</h3>
         </div>
@@ -61,7 +60,7 @@ function ListeFiliere() {
         <div class="overflow-x-auto rounded-lg">
           <div class="align-middle inline-block relative min-w-full">
             <div class="shadow overflow-hidden  sm:rounded-lg">
-              <table class="min-w-full divide-y  divide-gray-200">
+              <table class="w-full divide-y  divide-gray-200">
                 {data.length != 0 && (
                   <thead class="bg-gray-50 w-full text-black rounded-lg">
                     <tr>
@@ -86,7 +85,7 @@ function ListeFiliere() {
                     </tr>
                   </thead>
                 )}
-                <tbody class="bg-white h-full  ">
+                <tbody class="bg-white w-full h-full  ">
                   {load ? (
                     <div className=" my-44">
                       <Load></Load>
@@ -103,13 +102,13 @@ function ListeFiliere() {
                           </td>
                           <td
                             title={e.cycle}
-                            class="px-2 py-4  capitalize truncate  text-[15px] "
+                            class="px-2 py-4 capitalize truncate  text-[15px] "
                           >
                             {e.cycle}
                           </td>
                           <td
                             title={e.annee + "ans"}
-                            class="p-2 py-4 capitalize   text-[15px] font-normal text-black"
+                            class="p-2 py-4 capitalize w-[200px]  text-[15px] font-normal text-black"
                           >
                             {e.annee + " ans"}
                           </td>

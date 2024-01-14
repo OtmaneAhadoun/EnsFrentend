@@ -3,7 +3,7 @@ import InitSession from "../forms/InitSession";
 import { AnimatePresence } from "framer-motion";
 
 function DateArea({ day }) {
-  const [data, setData] = useState();
+  const [data, setData] = useState({morning:{},evening:{}});
   const [open, setOpen] = useState(false);
   function compareTime(time1, time2) {
     const date1 = new Date(`2000-01-01T${time1}`);
@@ -28,24 +28,24 @@ function DateArea({ day }) {
           {open && <InitSession data={setData} off={setOpen}></InitSession>}
         </AnimatePresence>
         <div className="h-20 shrink-0 sm:max-w-full w-full hover:bg-gray-100 cursor-pointer transition-all text-sm  justify-center gap-1 flex flex-col border-r  text-white p-1 items-center  bg-white">
-          {data?.session.start &&
-            data?.session.end &&
-            data?.module &&
-            data?.prof &&
-            compareTime(data?.session?.end, "12:00") &&
-            compareTimeTwo(data?.session?.start, "09:00") && (
+          {data.morning.session?.start &&
+            data.morning.session?.end &&
+            data.morning?.module &&
+            data.morning?.prof &&
+            compareTime(data.morning.session?.end, "12:00") &&
+            compareTimeTwo(data.morning.session?.start, "09:00") && (
               <>
                 <span class="items-center max-w-[169px] truncate capitalize text-center gap-x-1.5 py-1.5 px-3 rounded-lg w-full text-xs font-medium bg-teal-500 text-white">
-                  {data?.module}
+                  {data.morning?.module}
                 </span>
                 <span class="w-full items-center max-w-[169px] truncate text-center gap-x-1.5 py-1.5 px-3 text-xs font-medium bg-teal-100 text-teal-800  rounded-lg">
-                  {data?.session.start}-{data?.session.end}
+                  {data.morning.session?.start}-{data.morning.session?.end}
                 </span>
               </>
             )}
         </div>
       </div>
-      <div className="  py-1 sm:max-w-full flex items-center w-full gap-1 text-[12px] text-gray-500">
+      <div className=" truncate  py-1  flex items-center w-full gap-1 text-[11px] text-gray-500">
         <hr className=" grow" />
         12:00-13:00
         <hr className=" grow" />
@@ -55,18 +55,18 @@ function DateArea({ day }) {
         className="flex-1 shrink-0   text-center"
       >
         <div className="h-20 w-full sm:max-w-full border-b hover:bg-gray-100 cursor-pointer transition-all  gap-1 flex flex-col border-r  text-white p-1 items-center  bg-white">
-          {data?.session.start &&
-            data?.session.end &&
-            data?.module &&
-            data?.prof &&
-            compareTime(data?.session?.end, "17:00") &&
-            compareTimeTwo(data?.session?.start, "13:00") && (
+          {data?.evening.session?.start &&
+            data?.evening.session?.end &&
+            data?.evening.module &&
+            data?.evening.prof &&
+            compareTime(data?.evening.session?.end, "17:00") &&
+            compareTimeTwo(data?.evening.session?.start, "13:00") && (
               <>
                 <span class="items-center max-w-[169px] truncate capitalize text-center gap-x-1.5 py-1.5 px-3 rounded-lg w-full text-xs font-medium bg-teal-500 text-white">
-                  {data?.module}
+                  {data?.evening.module}
                 </span>
                 <span class="w-full items-center text-center max-w-[169px] truncate gap-x-1.5 py-1.5 px-3 text-xs font-medium bg-teal-100 text-teal-800  rounded-lg">
-                  {data?.session.start}-{data?.session.end}
+                  {data?.evening.session.start}-{data?.evening.session.end}
                 </span>
               </>
             )}

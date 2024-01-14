@@ -10,9 +10,10 @@ function TableModule() {
   const [show, setShow] = useState(false);
   const [LoadData, setLoadData] = useState(false);
   const [toast, setToast] = useState(false);
-
+  console.log("fill", data);
   useEffect(() => {
     (async () => {
+      setLoad(true);
       try {
         const { data: profs } = await Maxios.get("/module");
         setData(profs);
@@ -26,7 +27,7 @@ function TableModule() {
     setShow((oldValue) => !oldValue);
   };
   return (
-    <div class="bg-white relative flex flex-col  shadow rounded-lg p-2 ">
+    <div class="bg-white relative flex flex-col text-gray-700  shadow rounded-lg p-2 ">
       <AnimatePresence>
         {toast && <Toast message={"Module"} off={setToast}></Toast>}
         {show && (
@@ -48,17 +49,17 @@ function TableModule() {
           Ajouter Module
         </button>
       </div>
-      <div className=" min-h-[64px]  relative ">
+      <div className=" min-h-[160px]  relative ">
         {data.length != 0 && (
-          <div className="w-full bg-black">
-            <div className="flex border-b justify-between w-full">
-              <div className="px-4 bg-gray-50 text-black w-full py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0">
+          <div className=" ">
+            <div className="flex border-b justify-between ">
+              <div className="px-4 bg-gray-50 w-full text-black  py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0">
                 Module
               </div>
-              <div className="px-4 bg-gray-50 text-black w-full py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0">
+              <div className="px-4 bg-gray-50 w-full text-black  py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0">
                 filiere
               </div>
-              <div className="px-4 truncate w-[160px] bg-gray-50 text-black py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0">
+              <div className="px-4 truncate  w-[50%] bg-gray-50 text-black py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0">
                 masse horaire
               </div>
             </div>
@@ -68,16 +69,16 @@ function TableModule() {
           <Load />
         ) : data.length ? (
           data.map((item, index) => (
-            <div key={index} className="w-full">
+            <div key={index} className="w-full even:bg-gray-50 odd:bg-white">
               <div className="w-full bg-transparent">
                 <div className="flex text-sm justify-between w-full">
-                  <div className="px-4 text-black w-full py-3 text-sm text-left capitalize border-l-0 border-r-0">
+                  <div className="px-4 text-black truncate  w-full py-3 text-sm text-left capitalize border-l-0 border-r-0">
                     {item.nom}{" "}
                   </div>
-                  <div className="px-4 text-black w-full py-3 text-sm text-left capitalize border-l-0 border-r-0">
-                    {item.idFiliere}{" "}
+                  <div className="px-4 text-black truncate w-full py-3 text-sm text-left capitalize border-l-0 border-r-0">
+                    {item.nomFiliere}{" "}
                   </div>
-                  <div className="px-4 truncate w-[160px] text-black py-3 text-sm text-left capitalize border-l-0 border-r-0">
+                  <div className="px-4 w-[50%]  truncate text-black py-3 text-sm text-left capitalize border-l-0 border-r-0">
                     {item.massHoraire}{" "}
                   </div>
                 </div>

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Maxios from "../../assets/maxios";
 import audio from "../../assets/audio/success_bell-6776.mp3";
 import Load from "../../comps/Load";
+import DropDown from "../../comps/DropDown";
 
 function AddModule({ done, off, setToast }) {
   const [data, setData] = useState({});
@@ -17,11 +18,7 @@ function AddModule({ done, off, setToast }) {
 
   const Submit = async (e) => {
     e.preventDefault();
-    if (
-      !data.nom ||
-      !data.massHoraire ||
-      !data.idFiliere 
-    ) {
+    if (!data.nom || !data.massHoraire || !data.idFiliere) {
       setError({
         error: "empty",
         message: "S'il vous plaît remplissez Tous les données.",
@@ -54,7 +51,7 @@ function AddModule({ done, off, setToast }) {
         onClick={() => {
           off(false);
         }}
-        className="py-12 bg-[#00000080] fixed  z-50 inset-0"
+        className="py-12 bg-[#00000080] fixed  z-[200] inset-0"
       >
         <motion.form
           initial={{ y: -40, opacity: 0 }}
@@ -128,36 +125,37 @@ function AddModule({ done, off, setToast }) {
               onChange={getData}
             />
             <div className=" flex w-full gap-2">
-              <div className=" w-full">
-                <label
-                  htmlFor="prof"
-                  className="text-black my-1 text-sm font-bold leading-tight tracking-normal"
-                >
-                  Filiere
-                </label>
-                <input
-                  id="filiere"
-                  className="text-gray-600 my-1 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded-lg border"
-                  placeholder="..."
-                  name="idFiliere"
-                  onChange={getData}
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="annee"
-                  className="text-black my-1 text-sm font-bold leading-tight tracking-normal"
-                >
-                  Mass Horaire
-                </label>
-                <input
-                  id="massHoraire"
-                  className="text-gray-600 my-1 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded-lg border"
-                  placeholder="..."
-                  name="massHoraire"
-                  onChange={getData}
-                  type="number"
-                />
+              <div className=" w-full flex items-center gap-2">
+                <div className=" flex flex-col grow">
+                  <label
+                    htmlFor="annee"
+                    className="text-black  relative bottom-[2.5px] my-1 text-sm font-bold leading-tight tracking-normal"
+                  >
+                    Filiere
+                  </label>
+                  <DropDown
+                    route={"filiere"}
+                    nom={"filiere"}
+                    setFiliere={setData}
+                  ></DropDown>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="annee"
+                    className="text-black my-1 text-sm font-bold leading-tight tracking-normal"
+                  >
+                    Mass Horaire
+                  </label>
+                  <input
+                    id="massHoraire"
+                    className="text-gray-600 my-1 focus:outline-none focus:border focus:border-teal-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded-lg border"
+                    placeholder="..."
+                    name="massHoraire"
+                    onChange={getData}
+                    type="number"
+                  />
+                </div>
               </div>
             </div>
             <div className="flex mt-2 items-center justify-start w-full">

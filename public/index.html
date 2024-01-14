@@ -24,11 +24,23 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <style>
+      ::-webkit-scrollbar {
+        width: 15px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #d1e5ff;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(#642bff, #ff22e6);
+        border-radius: 10px !important;
+      }
+    </style>
+    <title>ENS</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root" class="scrollbar-thin scrollbar-thumb-teal-600"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

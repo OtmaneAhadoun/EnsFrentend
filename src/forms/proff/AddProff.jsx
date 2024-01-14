@@ -49,7 +49,7 @@ function AddProff({ done, setToast, off }) {
   return (
     <motion.div
       onClick={off}
-      className="fixed w-full inset-0 z-50 bg-[#00000080]  h-screen"
+      className="fixed w-full inset-0 z-[200] bg-[#00000080]  h-screen"
     >
       <motion.form
         onSubmit={submitForm}

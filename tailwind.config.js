@@ -10,5 +10,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("preline/plugin")],
+  plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
 };
