@@ -24,16 +24,25 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <style>
-      ::-webkit-scrollbar {
-        width: 15px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #d1e5ff;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: linear-gradient(#642bff, #ff22e6);
-        border-radius: 10px !important;
+
+    <style type="text/css" media="print">
+      @media print {
+        /* Add your print-specific styles here */
+        * {
+          font-size: 13px !important;
+          color: #333 !important;
+          font-family: "Outfit";
+          background-color: white;
+          background: none !important;
+        }
+        .print{
+          flex-shrink: 0;
+        }
+        span{
+          display: block;
+        }
+
+        /* Define additional print styles as needed */
       }
     </style>
     <title>ENS</title>

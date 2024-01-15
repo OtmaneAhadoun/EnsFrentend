@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import DateArea from "./DateArea";
 import DropDown from "./DropDown";
-
+import ReactToPrint, { useReactToPrint } from "react-to-print";
 function TimePicher() {
   const [checked, setCheked] = useState({ one: true, two: false });
+  const componentRef = useRef();
   const daysOfWeek = [
     "Monday",
     "Tuesday",
@@ -12,10 +13,18 @@ function TimePicher() {
     "Friday",
     "Saturday",
   ];
+
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
   console.log(checked);
   return (
     <div className="flex flex-col shadow mt-3 bg-white rounded-lg ">
-      <div className=" flex w-full scrollbar-thumb-teal-600 scrollbar-track-gray-200 scrollbar-thin overflow-x-auto">
+      <div
+        ref={componentRef}
+        className=" flex  w-full scrollbar-thumb-teal-600 scrollbar-track-gray-200 scrollbar-thin overflow-x-auto"
+      >
+        <span className=" hidden">salam</span>
         {daysOfWeek.map((day) => (
           <DateArea day={day}></DateArea>
         ))}
@@ -68,7 +77,7 @@ function TimePicher() {
               type="checkbox"
               onClick={(e) => {
                 if (checked.one) {
-                  setCheked((v) => ({ ...v, one:false , two: !v.two }));
+                  setCheked((v) => ({ ...v, one: false, two: !v.two }));
                 }
               }}
               class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-[35px] before:w-[35px] before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-teal-500 checked:bg-teal-500 checked:before:bg-teal-500 hover:before:opacity-10"
@@ -95,11 +104,21 @@ function TimePicher() {
         </div>
 
         <div className=" flex max-w-36 bg-black">
-          <DropDown route="filiere" nom={'Filiere'}></DropDown>
+          <DropDown route="filiere" nom={"Filiere"}></DropDown>
         </div>
-        <button className="focus:outline-none m-1.5 font-semibold focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition duration-150 ease-in-out hover:bg-teal-700 bg-teal-600 rounded-lg text-white px-4 py-2.5 text-sm">
-          Save Plan
-        </button>
+
+        <ReactToPrint
+          content={() => componentRef.current}
+          trigger={() => (
+            <button
+              onClick={handlePrint}
+              className="focus:outline-none capitalize m-1.5 font-semibold focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition duration-150 ease-in-out hover:bg-teal-700 bg-teal-600 rounded-lg text-white px-4 py-2.5 text-sm"
+            >
+              Save and print
+            </button>
+          )}
+          documentTitle="emploi du temps"
+        />
       </div>
     </div>
   );

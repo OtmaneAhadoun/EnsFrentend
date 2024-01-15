@@ -3,7 +3,7 @@ import InitSession from "../forms/InitSession";
 import { AnimatePresence } from "framer-motion";
 
 function DateArea({ day }) {
-  const [data, setData] = useState({morning:{},evening:{}});
+  const [data, setData] = useState({ morning: {}, evening: {} });
   const [open, setOpen] = useState(false);
   function compareTime(time1, time2) {
     const date1 = new Date(`2000-01-01T${time1}`);
@@ -20,14 +20,15 @@ function DateArea({ day }) {
   return (
     <div className=" flex flex-col w-full">
       <div onClick={() => setOpen(true)} className="flex-1">
-        <h1 className="text-[1rem] truncate  sm:max-w-full p-2 border-b font-semibold text-center border-r">
+        <h1 className="text-[1rem] truncate  sm:max-w-full p-2 border-b font-semibold text-center ">
           {day}
         </h1>
 
         <AnimatePresence>
           {open && <InitSession data={setData} off={setOpen}></InitSession>}
         </AnimatePresence>
-        <div className="h-20 shrink-0 sm:max-w-full w-full hover:bg-gray-100 cursor-pointer transition-all text-sm  justify-center gap-1 flex flex-col border-r  text-white p-1 items-center  bg-white">
+        <div className="h-20 print shrink-0 sm:max-w-full w-full hover:bg-gray-100 cursor-pointer transition-all text-sm justify-center gap-1 flex flex-col border-r text-white p-1 items-center bg-white">
+          {" "}
           {data.morning.session?.start &&
             data.morning.session?.end &&
             data.morning?.module &&
