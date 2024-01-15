@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Profile from "./Profile";
 import { AnimatePresence } from "framer-motion";
-function Header({openSide,user}) {
+function Header({ openSide, user }) {
   const [showProfile, setShowProfile] = useState(false);
   return (
     <nav class="bg-white pr-4 z-[70] flex items-center justify-between h-[55px] border-b border-gray-200 fixed w-full">
@@ -9,7 +9,7 @@ function Header({openSide,user}) {
         <div class="flex items-center h-full justify-between">
           <div class="flex items-center h-full justify-start">
             <button
-              onClick={()=>openSide(v=>!v)}
+              onClick={() => openSide((v) => !v)}
               aria-expanded="true"
               aria-controls="sidebar"
               class="lg:hidden mr-2 text-gray-600 hover:text-gray-900 cursor-pointer p-2 hover:bg-gray-100 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 rounded"
@@ -105,18 +105,48 @@ function Header({openSide,user}) {
             </span>
           </div>
         </div>
-        <button name="openProfiel" onClick={()=>setShowProfile(v=>!v)}
-          
+        <button
+          name="openProfiel"
+          onClick={() => setShowProfile((v) => !v)}
           type="button"
-          class="relative py-1 ps-1 pe-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none  focus:outline-none"
+          class="relative py-1 ps-1 pe-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none  focus:outline-none"
         >
-          <img
-            class="w-8 h-auto rounded-lg"
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
-            alt="Maria" name="openProfiel" 
-          />
-          <a  class="text--800 bg-gree text-sm max-w-[7.5rem] truncate w-16 " name="openProfiel">{user.name?user.name:'....'}</a>
-          <svg onClick={()=>setShowProfile(v=>!v)}
+          <span class="inline-block h-[2rem] w-[2rem]  rounded-lg overflow-hidden">
+            <svg
+              class="h-full rounded-lg w-full text-gray-300"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="0.62854"
+                y="0.359985"
+                width="15"
+                height="15"
+                rx="7.5"
+                fill="white"
+              />
+              <path
+                d="M8.12421 7.20374C9.21151 7.20374 10.093 6.32229 10.093 5.23499C10.093 4.14767 9.21151 3.26624 8.12421 3.26624C7.0369 3.26624 6.15546 4.14767 6.15546 5.23499C6.15546 6.32229 7.0369 7.20374 8.12421 7.20374Z"
+                fill="currentColor"
+              />
+              <path
+                d="M11.818 10.5975C10.2992 12.6412 7.42106 13.0631 5.37731 11.5537C5.01171 11.2818 4.69296 10.9631 4.42107 10.5975C4.28982 10.4006 4.27107 10.1475 4.37419 9.94123L4.51482 9.65059C4.84296 8.95684 5.53671 8.51624 6.30546 8.51624H9.95231C10.7023 8.51624 11.3867 8.94749 11.7242 9.62249L11.8742 9.93184C11.968 10.1475 11.9586 10.4006 11.818 10.5975Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+
+          <a
+            class="text--800 bg-gree text-sm max-w-[7.5rem] truncate w-16 "
+            name="openProfiel"
+          >
+            {user.name ? user.name : "...."}
+          </a>
+          <svg
+            onClick={() => setShowProfile((v) => !v)}
             class="hs-dropdown-open:rotate-180 w-4 h-4"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -126,9 +156,14 @@ function Header({openSide,user}) {
             stroke="currentColor"
             stroke-width="2"
             stroke-linecap="round"
-            stroke-linejoin="round" name="openProfiel"
+            stroke-linejoin="round"
+            name="openProfiel"
           >
-            <path onClick={()=>setShowProfile(v=>!v)} d="m6 9 6 6 6-6" name="openProfiel" />
+            <path
+              onClick={() => setShowProfile((v) => !v)}
+              d="m6 9 6 6 6-6"
+              name="openProfiel"
+            />
           </svg>
           <AnimatePresence>
             {showProfile && <Profile off={setShowProfile}></Profile>}

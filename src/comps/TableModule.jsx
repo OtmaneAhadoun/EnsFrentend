@@ -27,7 +27,7 @@ function TableModule() {
     setShow((oldValue) => !oldValue);
   };
   return (
-    <div class="bg-white relative flex flex-col text-gray-700  shadow rounded-lg p-2 ">
+    <div class="bg-whit relative  flex flex-col text-gray-700  shadow rounded-lg p-2 ">
       <AnimatePresence>
         {toast && <Toast message={"Module"} off={setToast}></Toast>}
         {show && (
@@ -49,48 +49,69 @@ function TableModule() {
           Ajouter Module
         </button>
       </div>
-      <div className=" min-h-[160px]  relative ">
+      <table class="min-w-full divide-y  divide-gray-200">
         {data.length != 0 && (
-          <div className=" ">
-            <div className="flex border-b justify-between ">
-              <div className="px-4 bg-gray-50 w-full text-black  py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0">
+          <thead class="bg-gray-50 w-full text-black rounded-lg">
+            <tr>
+              <th
+                scope="col"
+                class="p-2  w-full  text-left capitalize text-sm font-medium   tracking-wider"
+              >
                 Module
-              </div>
-              <div className="px-4 bg-gray-50 w-full text-black  py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0">
-                filiere
-              </div>
-              <div className="px-4 truncate  w-[50%] bg-gray-50 text-black py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0">
-                masse horaire
-              </div>
-            </div>
-          </div>
+              </th>
+              <th
+                scope="col"
+                class="p-2  w-full text-left shrink-0   text-sm font-medium  capitalize tracking-wider"
+              >
+                Filiere
+              </th>
+              <th
+                scope="col"
+                class="p-2 text-left text-sm font-medium   capitalize tracking-wider"
+              >
+                Mass Horaire
+              </th>
+            </tr>
+          </thead>
         )}
-        {load ? (
-          <Load />
-        ) : data.length ? (
-          data.map((item, index) => (
-            <div key={index} className="w-full even:bg-gray-50 odd:bg-white">
-              <div className="w-full bg-transparent">
-                <div className="flex text-sm justify-between w-full">
-                  <div className="px-4 text-black truncate  w-full py-3 text-sm text-left capitalize border-l-0 border-r-0">
-                    {item.nom}{" "}
-                  </div>
-                  <div className="px-4 text-black truncate w-full py-3 text-sm text-left capitalize border-l-0 border-r-0">
-                    {item.nomFiliere}{" "}
-                  </div>
-                  <div className="px-4 w-[50%]  truncate text-black py-3 text-sm text-left capitalize border-l-0 border-r-0">
-                    {item.massHoraire}{" "}
-                  </div>
-                </div>
-              </div>
+        <tbody class="bg-white h-full  ">
+          {load ? (
+            <div className=" my-44">
+              <Load></Load>
             </div>
-          ))
-        ) : (
-          <h1 className="text-center h-16 inline-flex items-center w-full justify-center my-auto text-sm capitalize">
-            Aucun Module trouvé...??
-          </h1>
-        )}
-      </div>
+          ) : data.length ? (
+            data.map((e) => {
+              console.log(e);
+              return (
+                <tr className="even:bg-gray-50 text-gray-700 odd:bg-white">
+                  <td
+                    title={e.nom}
+                    class="p-2 py-4   capitalize truncate text-[15px] w-full max-w-[140px] font-normal"
+                  >
+                    {e.nom}
+                  </td>
+                  <td
+                    title={e.nomFiliere}
+                    class="p-2 py-4   capitalize truncate text-[15px] w-full max-w-[140px] font-normal"
+                  >
+                    {e.nomFiliere}
+                  </td>
+                  <td
+                    title={e.massHoraire }
+                    class="p-2 py-4 capitalize   text-[15px] font-normal text-black"
+                  >
+                    {e.massHoraire}
+                  </td>
+                </tr>
+              );
+            })
+          ) : (
+            <h1 className="text-center h-[140px]  inline-flex items-center w-full justify-center my-auto text-sm capitalize">
+              Aucun Filiere trouvé...??
+            </h1>
+          )}
+        </tbody>
+      </table>
     </div>
   );
 }

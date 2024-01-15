@@ -56,7 +56,7 @@ function Dahboard() {
                   <ListeDash></ListeDash>
                   <PreSelect />
 
-                  <div className=" flex-wrap flex gap-3 py-3">
+                  <div className=" flex flex-wrap gap-3 py-3">
                     <ListeFiliere></ListeFiliere>
                     <ProfTable></ProfTable>
                     {/* <ListeStudents></ListeStudents> */}

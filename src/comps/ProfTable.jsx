@@ -27,7 +27,7 @@ function ProfTable() {
     setShow((oldValue) => !oldValue);
   };
   return (
-    <div class=" flex flex-col shrink-0 gap-2 grow xl:gap-4">
+    <div class=" flex flex-col gap-2 grow  xl:gap-4">
       <AnimatePresence>
         {toast && <Toast message={"Professeur"} off={setToast}></Toast>}
         {show && (
@@ -64,13 +64,13 @@ function ProfTable() {
             {load ? (
               <Load></Load>
             ) : data.length ? (
-              data.map((e) => {
+              data.map((e, i) => {
                 return (
-                  <li class=" py-2 ">
+                  <li key={i} class=" py-2 ">
                     <div class="flex items-center space-x-2.5">
                       <div class="flex shrink-0">
                         <img
-                          class="h-12 p-[2px] object-cover w-12 border-2 border-teal-600 rounded-xl"
+                          class="h-12  object-cover w-12  border-teal-600 rounded-xl"
                           src={
                             "http://localhost:8000/storage/images/" + e.image
                           }

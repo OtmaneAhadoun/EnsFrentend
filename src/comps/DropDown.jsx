@@ -56,7 +56,7 @@ function DropDown({ setFiliere, setProf, setModule, route, nom, size }) {
             transition={{ duration: 0.2 }}
             class={`min-h-[180px] z-50 max-h-44 scrollbar-thumb-rounded-2xl scrollbar-track-rounded-xl scrollbar-thin scrollbar-thumb-teal-600 scrollbar-track-gray-200 schro overflow-y-auto bg-white rounded-lg ${
               !size ? "w-52" : size
-            } absolute opacity-1 right-0 top-[107%] shadow p-1.5`}
+            } absolute opacity-1 text-gray-700 right-0 top-[107%] shadow p-1.5`}
           >
             {load ? (
               <Load />
@@ -85,7 +85,7 @@ function DropDown({ setFiliere, setProf, setModule, route, nom, size }) {
                     setOpen(false);
                   }}
                   title={e.nom}
-                  class="flex cursor-pointer  items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
+                  class="flex cursor-pointer  items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm  hover:bg-gray-100 focus:outline-none focus:bg-gray-100 "
                   href="#"
                 >
                   {nom == "Professeur" ? (

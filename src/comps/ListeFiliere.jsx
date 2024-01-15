@@ -11,6 +11,7 @@ function ListeFiliere() {
   const [loadData, setLoadData] = useState(true);
   const [open, setOpen] = useState(false);
   const [toast, setToast] = useState(false);
+
   useEffect(() => {
     (async () => {
       setLoad(true)
@@ -25,7 +26,7 @@ function ListeFiliere() {
     console.log(data);
   }, [loadData]);
   return (
-    <div class="bg-white shadow shrink-0  overflow-hidden rounded-lg p-3 grow md:basis-[500px] w-full  ">
+    <div class="bg-white shadow  overflow-hidden rounded-lg p-3  grow  ">
       <AnimatePresence>
         {toast && <Toast message={"filiere"} off={setToast}></Toast>}
 
@@ -37,7 +38,7 @@ function ListeFiliere() {
           ></AddFiliere>
         )}
       </AnimatePresence>
-      <div class="mb-4 w-full flex items-center justify-between">
+      <div class="mb-4 flex items-center justify-between">
         <div>
           <h3 class="text-xl font-bold text-black">Liste Filiere</h3>
         </div>
@@ -56,11 +57,11 @@ function ListeFiliere() {
           </button>
         </div>
       </div>
-      <div class="flex flex-col    h-full mt-4">
+      <div class="flex flex-col h-full mt-4">
         <div class="overflow-x-auto rounded-lg">
           <div class="align-middle inline-block relative min-w-full">
             <div class="shadow overflow-hidden  sm:rounded-lg">
-              <table class="w-full divide-y  divide-gray-200">
+              <table class="min-w-full divide-y  divide-gray-200">
                 {data.length != 0 && (
                   <thead class="bg-gray-50 w-full text-black rounded-lg">
                     <tr>
@@ -72,7 +73,7 @@ function ListeFiliere() {
                       </th>
                       <th
                         scope="col"
-                        class="p-2  text-left shrink-0   text-sm font-medium  capitalize tracking-wider"
+                        class="p-2  w-full text-left shrink-0   text-sm font-medium  capitalize tracking-wider"
                       >
                         Cycle
                       </th>
@@ -80,12 +81,12 @@ function ListeFiliere() {
                         scope="col"
                         class="p-2 text-left text-sm font-medium   capitalize tracking-wider"
                       >
-                        Nombre d'anne
+                        Annee
                       </th>
                     </tr>
                   </thead>
                 )}
-                <tbody class="bg-white w-full h-full  ">
+                <tbody class="bg-white h-full  ">
                   {load ? (
                     <div className=" my-44">
                       <Load></Load>
@@ -96,21 +97,21 @@ function ListeFiliere() {
                         <tr className="even:bg-gray-50 text-gray-700 odd:bg-white">
                           <td
                             title={e.nom}
-                            class="p-2 py-4  capitalize truncate text-[15px] w-full max-w-[160px] font-normal"
+                            class="p-2 py-4   capitalize truncate text-[14px] w-full max-w-[160px] font-normal"
                           >
                             {e.nom}
                           </td>
                           <td
                             title={e.cycle}
-                            class="px-2 py-4 capitalize truncate  text-[15px] "
+                            class="px-2 py-4 w-full sm:min-w-fit md:min-w-[160px] shrink-0  capitalize truncate  text-[14px] "
                           >
                             {e.cycle}
                           </td>
                           <td
                             title={e.annee + "ans"}
-                            class="p-2 py-4 capitalize w-[200px]  text-[15px] font-normal text-black"
+                            class="p-2 py-4 capitalize   text-[14px] font-normal "
                           >
-                            {e.annee + " ans"}
+                            {e.annee}
                           </td>
                         </tr>
                       );
