@@ -42,6 +42,9 @@ function DateArea({ day }) {
                 <span class="w-full items-center max-w-[169px] truncate text-center gap-x-1.5 py-1.5 px-3 text-xs font-medium bg-teal-100 text-teal-800  rounded-lg">
                   {data.morning.session?.start}-{data.morning.session?.end}
                 </span>
+                <span class="w-full items-center max-w-[169px] truncate text-center gap-x-1.5 px-3 text-xs font-medium underline text-teal-800  rounded-lg">
+                  {data.morning.prof}
+                </span>
               </>
             )}
         </div>

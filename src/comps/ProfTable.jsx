@@ -27,7 +27,7 @@ function ProfTable() {
     setShow((oldValue) => !oldValue);
   };
   return (
-    <div class=" flex flex-col gap-2 grow  xl:gap-4">
+    <div class=" flex flex-col mt-3 min-h-[300px] relative gap-2 grow  xl:gap-4">
       <AnimatePresence>
         {toast && <Toast message={"Professeur"} off={setToast}></Toast>}
         {show && (
@@ -38,7 +38,7 @@ function ProfTable() {
           ></AddProff>
         )}
       </AnimatePresence>
-      <div class="bg-white flex flex-col shadow rounded-lg  p-3 grow ">
+      <div class="bg-white flex flex-col shadow rounded-lg  p-3 pb-1 grow ">
         <div class="flex items-center justify-between ">
           <h3 class="text-xl font-bold leading-none text-gray-900">
             All Professeur
@@ -46,7 +46,7 @@ function ProfTable() {
           <div className="flex gap-2">
             <button
               href="#"
-              class="text-sm font-medium text-teal-600 hover:bg-gray-100 rounded-lg inline-flex items-center p-2.5 px-3"
+              class="text-sm font-medium text-teal-600 hover:bg-gray-100 rounded-lg inline-flex items-center p-2.5 px-2.5"
             >
               View all
             </button>
@@ -59,7 +59,7 @@ function ProfTable() {
             </button>
           </div>
         </div>
-        <div class=" relative  h-full pt-2 ">
+        <div class="  h-full pt-2 ">
           <ul class="divide-y grow h-full min-h-[64px] divide-gray-200">
             {load ? (
               <Load></Load>
@@ -68,13 +68,12 @@ function ProfTable() {
                 return (
                   <li key={i} class=" py-2 ">
                     <div class="flex items-center space-x-2.5">
-                      <div class="flex shrink-0">
+                      <div class="flex h-14 shrink-0">
                         <img
                           class="h-12  object-cover w-12  border-teal-600 rounded-xl"
                           src={
                             "http://localhost:8000/storage/images/" + e.image
                           }
-                          alt="Neil image"
                         />
                       </div>
                       <div class="flex-1 ">
@@ -100,7 +99,6 @@ function ProfTable() {
           </ul>
         </div>
       </div>
-      <TableModule></TableModule>
     </div>
   );
 }

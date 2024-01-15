@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Maxios from "./assets/maxios";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Load from "./comps/Load";
 import Header from "./comps/Header";
 import Aside from "./comps/Aside";
@@ -52,18 +52,18 @@ function Dahboard() {
             >
               <main>
                 <div class="p-3">
-                  <TimePicher></TimePicher>
-                  <ListeDash></ListeDash>
-                  <PreSelect />
+                <Outlet />
 
-                  <div className=" flex flex-wrap gap-3 py-3">
-                    <ListeFiliere></ListeFiliere>
-                    <ProfTable></ProfTable>
-                    {/* <ListeStudents></ListeStudents> */}
-                  </div>
+                  {/* <ListeDash></ListeDash>
+                  <TimePicher></TimePicher>
+                  <PreSelect /> */}
+
+                  
+                    {/* <ProfTable></ProfTable> */}
+                  
                 </div>
               </main>
-              <Footer></Footer>
+              {/* <Footer></Footer> */}
               <p class="text-center text-sm text-gray-500 my-10">
                 &copy; 2024-2024
                 <a href="#" class="hover:underline" target="_blank">

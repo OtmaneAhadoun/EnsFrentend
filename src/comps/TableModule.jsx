@@ -27,7 +27,7 @@ function TableModule() {
     setShow((oldValue) => !oldValue);
   };
   return (
-    <div class="bg-whit relative  flex flex-col text-gray-700  shadow rounded-lg p-2 ">
+    <div class="bg-whit relative mt-3 min-h-[300px] bg-white overflow-x-auto  flex flex-col text-gray-700  shadow rounded-lg p-2 ">
       <AnimatePresence>
         {toast && <Toast message={"Module"} off={setToast}></Toast>}
         {show && (
@@ -55,19 +55,19 @@ function TableModule() {
             <tr>
               <th
                 scope="col"
-                class="p-2  w-full  text-left capitalize text-sm font-medium   tracking-wider"
+                class="p-2   text-left capitalize text-sm font-medium   tracking-wider"
               >
                 Module
               </th>
               <th
                 scope="col"
-                class="p-2  w-full text-left shrink-0   text-sm font-medium  capitalize tracking-wider"
+                class="p-2   text-left    text-sm font-medium  capitalize tracking-wider"
               >
                 Filiere
               </th>
               <th
                 scope="col"
-                class="p-2 text-left text-sm font-medium   capitalize tracking-wider"
+                class="p-2 text-left text-sm font-medium     capitalize tracking-wider"
               >
                 Mass Horaire
               </th>
@@ -86,19 +86,19 @@ function TableModule() {
                 <tr className="even:bg-gray-50 text-gray-700 odd:bg-white">
                   <td
                     title={e.nom}
-                    class="p-2 py-4   capitalize truncate text-[15px] w-full max-w-[140px] font-normal"
+                    class="p-2 py-4    capitalize  text-[15px]   font-normal"
                   >
                     {e.nom}
                   </td>
                   <td
                     title={e.nomFiliere}
-                    class="p-2 py-4   capitalize truncate text-[15px] w-full max-w-[140px] font-normal"
+                    class="p-2 py-4    capitalize text-[15px]   font-normal"
                   >
                     {e.nomFiliere}
                   </td>
                   <td
                     title={e.massHoraire }
-                    class="p-2 py-4 capitalize   text-[15px] font-normal text-black"
+                    class="p-2 py-4 capitalize     text-[15px] font-normal text-black"
                   >
                     {e.massHoraire}
                   </td>

@@ -18,3 +18,12 @@
   margin: 8px !important;
   border: 1px solid #eee;
 }
+.active {
+  background-color: #f3f4f6 !important;
+  border-radius: 8px;
+  color: #000 !important;
+}
+.active svg {
+
+  color: #000 !important;
+}

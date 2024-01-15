@@ -26,7 +26,7 @@ function ListeFiliere() {
     console.log(data);
   }, [loadData]);
   return (
-    <div class="bg-white shadow  overflow-hidden rounded-lg p-3  grow  ">
+    <div class="bg-white shadow  mt-4 overflow-hidden rounded-lg p-3  grow  ">
       <AnimatePresence>
         {toast && <Toast message={"filiere"} off={setToast}></Toast>}
 
@@ -45,7 +45,7 @@ function ListeFiliere() {
         <div class="flex items-center gap-2">
           <a
             href="#"
-            class="text-sm font-medium text-teal-600 hover:bg-gray-100 rounded-lg p-3"
+            class="text-sm font-medium text-teal-600 hover:bg-gray-100 rounded-lg p-2.5"
           >
             View all
           </a>
@@ -67,19 +67,19 @@ function ListeFiliere() {
                     <tr>
                       <th
                         scope="col"
-                        class="p-2  w-full  text-left capitalize text-sm font-medium   tracking-wider"
+                        class="p-2    text-left capitalize w-full text-sm font-medium   tracking-wider"
                       >
                         Nom Filiere
                       </th>
                       <th
                         scope="col"
-                        class="p-2  w-full text-left shrink-0   text-sm font-medium  capitalize tracking-wider"
+                        class="p-2   text-left shrink-0  w-full  text-sm font-medium  capitalize tracking-wider"
                       >
                         Cycle
                       </th>
                       <th
                         scope="col"
-                        class="p-2 text-left text-sm font-medium   capitalize tracking-wider"
+                        class="p-2 text-left text-sm font-medium  w-full  capitalize tracking-wider"
                       >
                         Annee
                       </th>
@@ -97,19 +97,19 @@ function ListeFiliere() {
                         <tr className="even:bg-gray-50 text-gray-700 odd:bg-white">
                           <td
                             title={e.nom}
-                            class="p-2 py-4   capitalize truncate text-[14px] w-full max-w-[160px] font-normal"
+                            class="p-2 py-4  w-full  capitalize  text-[14px] font-normal"
                           >
                             {e.nom}
                           </td>
                           <td
                             title={e.cycle}
-                            class="px-2 py-4 w-full sm:min-w-fit md:min-w-[160px] shrink-0  capitalize truncate  text-[14px] "
+                            class="px-2 py-4 w-full min-w-[150px]  capitalize   text-[14px] "
                           >
                             {e.cycle}
                           </td>
                           <td
                             title={e.annee + "ans"}
-                            class="p-2 py-4 capitalize   text-[14px] font-normal "
+                            class="p-2 py-4 capitalize  min-w-[120px] shrink-0  text-[14px] font-normal "
                           >
                             {e.annee}
                           </td>
