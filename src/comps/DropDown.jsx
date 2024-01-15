@@ -96,7 +96,6 @@ function DropDown({ setFiliere, setProf, setModule, route, nom, size }) {
                           src={
                             "http://localhost:8000/storage/images/" + e.image
                           }
-                          alt="Neil image"
                         />
                       </div>
 

@@ -149,7 +149,7 @@ const Auth = () => {
             </a>
           </p>
           <div class="relative mt-7 shrink-0 w-full max-w-[310px]">
-            <div class=" text-sm w-full  h-fit gap-9 text-black flex items-center justify-between">
+            <div class=" text-sm w-full  h-fit  text-black flex items-center justify-between">
               <p class="text-left">Don't have an account?</p>
               <a
                 class="inline-flex justify-center rounded-lg text-sm font-semibold py-2.5 px-4 text-slate-900 ring-1 ring-slate-900/10 hover:ring-slate-900/20"

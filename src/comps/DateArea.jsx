@@ -27,7 +27,7 @@ function DateArea({ day }) {
         <AnimatePresence>
           {open && <InitSession data={setData} off={setOpen}></InitSession>}
         </AnimatePresence>
-        <div className="h-20 print shrink-0 sm:max-w-full w-full hover:bg-gray-100 cursor-pointer transition-all text-sm justify-center gap-1 flex flex-col border-r text-white p-1 items-center bg-white">
+        <div className="h-[85px] print shrink-0 sm:max-w-full w-full hover:bg-gray-100 cursor-pointer transition-all text-sm justify-center gap-1 flex flex-col border-r text-white p-1 items-center bg-white">
           {" "}
           {data.morning.session?.start &&
             data.morning.session?.end &&
@@ -42,7 +42,7 @@ function DateArea({ day }) {
                 <span class="w-full items-center max-w-[169px] truncate text-center gap-x-1.5 py-1.5 px-3 text-xs font-medium bg-teal-100 text-teal-800  rounded-lg">
                   {data.morning.session?.start}-{data.morning.session?.end}
                 </span>
-                <span class="w-full items-center max-w-[169px] truncate text-center gap-x-1.5 px-3 text-xs font-medium underline text-teal-800  rounded-lg">
+                <span class="w-full underline items-center max-w-[169px] truncate text-center gap-x-1.5 px-3 text-xs font-medium  text-teal-800  rounded-lg">
                   {data.morning.prof}
                 </span>
               </>
@@ -58,7 +58,7 @@ function DateArea({ day }) {
         onClick={() => setOpen(true)}
         className="flex-1 shrink-0   text-center"
       >
-        <div className="h-20 w-full sm:max-w-full border-b hover:bg-gray-100 cursor-pointer transition-all  gap-1 flex flex-col border-r  text-white p-1 items-center  bg-white">
+        <div className="h-[85px] w-full sm:max-w-full border-b hover:bg-gray-100 cursor-pointer transition-all  gap-1 flex flex-col border-r  text-white p-1 items-center  bg-white">
           {data?.evening.session?.start &&
             data?.evening.session?.end &&
             data?.evening.module &&
@@ -71,6 +71,9 @@ function DateArea({ day }) {
                 </span>
                 <span class="w-full items-center text-center max-w-[169px] truncate gap-x-1.5 py-1.5 px-3 text-xs font-medium bg-teal-100 text-teal-800  rounded-lg">
                   {data?.evening.session.start}-{data?.evening.session.end}
+                </span>
+                <span class="w-full items-center max-w-[169px] truncate text-center gap-x-1.5 px-3 text-xs font-medium underline text-teal-800  rounded-lg">
+                  {data?.evening.prof}
                 </span>
               </>
             )}
