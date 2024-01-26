@@ -2,163 +2,163 @@ import React from "react";
 
 function ListeStudents() {
   return (
-    // <div class="w-full grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4">
-    //                 <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  2xl:col-span-2">
-    //                   <div class="flex items-center justify-between mb-4">
-    //                     <div class="flex-shrink-0">
-    //                       <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">
-    //                         $45,385
-    //                       </span>
-    //                       <h3 class="text-base font-normal text-gray-500">
-    //                         Sales this week
-    //                       </h3>
-    //                     </div>
-    //                     <div class="flex items-center justify-end flex-1 text-green-500 text-base font-bold">
-    //                       12.5%
-    //                       <svg
-    //                         class="w-5 h-5"
-    //                         fill="currentColor"
-    //                         viewBox="0 0 20 20"
-    //                         xmlns="http://www.w3.org/2000/svg"
-    //                       >
-    //                         <path
-    //                           fill-rule="evenodd"
-    //                           d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z"
-    //                           clip-rule="evenodd"
-    //                         ></path>
-    //                       </svg>
-    //                     </div>
-    //                   </div>
-    //                   <div id="main-chart"></div>
-    //                 </div>
-
-    //               </div>
-    <div class="bg-white shadow rounded-lg p-3 w-full  ">
-      <div class="mb-4 flex items-center justify-between">
-        <div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">
-            Latest Transactions
-          </h3>
-          <span class="text-base font-normal text-gray-500">
-            This is a list of latest transactions
-          </span>
-        </div>
-        <div class="flex-shrink-0">
-          <a
-            href="#"
-            class="text-sm font-medium text-teal-600 hover:bg-gray-100 rounded-lg p-2"
-          >
-            View all
-          </a>
-        </div>
-      </div>
-      <div class="flex flex-col mt-8">
-        <div class="overflow-x-auto rounded-lg">
-          <div class="align-middle inline-block min-w-full">
-            <div class="shadow overflow-hidden sm:rounded-lg">
-              <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
+    <section className=" py-3 w-full overflow-hidden min-h-[calc(100vh-170px)]  ">
+      <div className="flex flex-col">
+        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+            <div className="overflow-hidden border  md:rounded-lg">
+              <table className="min-w-full  bg-white  divide-y accent-teal-600 divide-gray-200 ">
+                <thead className="">
                   <tr>
                     <th
                       scope="col"
-                      class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className="py-3.5 px-4 text-sm font-medium text-left rtl:text-right text-gray-800 "
                     >
-                      Transaction
+                      <span>Code Massar</span>
                     </th>
                     <th
                       scope="col"
-                      class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right text-gray-800 "
                     >
-                      Date & Time
+                      Date
+                    </th>
+
+                    <th
+                      scope="col"
+                      className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right text-gray-800 "
+                    >
+                      Etudient
                     </th>
                     <th
                       scope="col"
-                      class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right text-gray-800 "
                     >
-                      Amount
+                      Diplome
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right text-gray-800 "
+                    >
+                      Filiere
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right text-gray-800 "
+                    >
+                      Status
                     </th>
                   </tr>
                 </thead>
-                <tbody class="bg-white">
+                <tbody className="bg-white divide-y divide-gray-200  ">
                   <tr>
-                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                      Payment from{" "}
-                      <span class="font-semibold">Bonnie Green</span>
+                    <td className="px-4 py-4 text-sm font-medium text-gray-700 ">
+                      <div className="inline-flex items-center gap-x-3">
+
+                        <span>#3066</span>
+                      </div>
                     </td>
-                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                      Apr 23 ,2021
+                    <td className="px-4 py-4 text-sm text-gray-500  ">
+                      Jan 6, 2022
                     </td>
-                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                      $2300
+
+                    <td className="px-4 py-4 text-sm text-gray-500  ">
+                      <div className="flex items-center gap-x-2">
+                        <img
+                          className="object-cover w-8 h-8 rounded-lg"
+                          src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                          alt=""
+                        />
+                        <div>
+                          <h2 className="text-sm font-medium text-gray-800  ">
+                            Arthur Melo
+                          </h2>
+                          <p className="text-xs font-normal text-gray-400 ">
+                            authurmelo@example.com
+                          </p>
+                        </div>
+                      </div>
                     </td>
-                  </tr>
-                  <tr class="bg-gray-50">
-                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900 rounded-lg rounded-left">
-                      Payment refund to{" "}
-                      <span class="font-semibold">#00910</span>
+                    <td className="px-4 py-4 text-sm uppercase underline text-gray-700  ">
+                      dut{" "}
                     </td>
-                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                      Apr 23 ,2021
+
+                    <td className="px-4 py-4 text-sm text-gray-500  ">
+                      Monthly subscription
                     </td>
-                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                      -$670
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                      Payment failed from{" "}
-                      <span class="font-semibold">#087651</span>
-                    </td>
-                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                      Apr 18 ,2021
-                    </td>
-                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                      $234
-                    </td>
-                  </tr>
-                  <tr class="bg-gray-50">
-                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900 rounded-lg rounded-left">
-                      Payment from <span class="font-semibold">Lana Byrd</span>
-                    </td>
-                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                      Apr 15 ,2021
-                    </td>
-                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                      $5000
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                      Payment from <span class="font-semibold">Jese Leos</span>
-                    </td>
-                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                      Apr 15 ,2021
-                    </td>
-                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                      $2300
-                    </td>
-                  </tr>
-                  <tr class="bg-gray-50">
-                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900 rounded-lg rounded-left">
-                      Payment from{" "}
-                      <span class="font-semibold">THEMESBERG LLC</span>
-                    </td>
-                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                      Apr 11 ,2021
-                    </td>
-                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                      $560
+                    <td className="px-4 py-4 text-sm font-medium text-gray-700 ">
+                      <div className="inline-flex items-center px-3 py-1 rounded-lg gap-x-2 text-emerald-500 bg-emerald-100/60 ">
+                        <svg
+                          width={12}
+                          height={12}
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10 3L4.5 8.5L2 6"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <h2 className="text-xs font-normal">Paid</h2>
+                      </div>
                     </td>
                   </tr>
                   <tr>
-                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                      Payment from <span class="font-semibold">Lana Lysle</span>
+                    <td className="px-4 py-4 text-sm font-medium text-gray-700 ">
+                      <div className="inline-flex items-center gap-x-3">
+
+                        <span>#3065</span>
+                      </div>
                     </td>
-                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-500">
-                      Apr 6 ,2021
+                    <td className="px-4 py-4 text-sm text-gray-500  ">
+                      Jan 5, 2022
                     </td>
-                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                      $1437
+
+                    <td className="px-4 py-4 text-sm text-gray-500  ">
+                      <div className="flex items-center gap-x-2">
+                        <img
+                          className="object-cover w-8 h-8 rounded-lg"
+                          src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+                          alt=""
+                        />
+                        <div>
+                          <h2 className="text-sm font-medium text-gray-800  ">
+                            Andi Lane
+                          </h2>
+                          <p className="text-xs font-normal text-gray-400 ">
+                            andi@example.com
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-4 py-4 text-sm uppercase underline text-gray-700  ">
+                      dts{" "}
+                    </td>
+                    <td className="px-4 py-4 text-sm text-gray-500  ">
+                      Monthly subscription
+                    </td>
+                    <td className="px-4 py-4 text-sm font-medium text-gray-700 ">
+                      <div className="inline-flex items-center px-3 py-1 text-red-500 rounded-lg gap-x-2 bg-red-100/60 ">
+                        <svg
+                          width={12}
+                          height={12}
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M9 3L3 9M3 3L9 9"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <h2 className="text-xs font-normal">Cancelled</h2>
+                      </div>
                     </td>
                   </tr>
                 </tbody>
@@ -167,7 +167,93 @@ function ListeStudents() {
           </div>
         </div>
       </div>
-    </div>
+      <div className="flex items-center justify-between mt-3">
+        <a
+          href="#"
+          className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100  "
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-5 h-5 rtl:-scale-x-100"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+            />
+          </svg>
+          <span>previous</span>
+        </a>
+        <div className="items-center hidden md:flex gap-x-3">
+          <a
+            href="#"
+            className="px-2 py-1 text-sm text-teal-500 rounded-md  bg-teal-100/60"
+          >
+            1
+          </a>
+          <a
+            href="#"
+            className="px-2 py-1 text-sm text-gray-500 rounded-md  hover:bg-gray-100"
+          >
+            2
+          </a>
+          <a
+            href="#"
+            className="px-2 py-1 text-sm text-gray-500 rounded-md  hover:bg-gray-100"
+          >
+            3
+          </a>
+          <a
+            href="#"
+            className="px-2 py-1 text-sm text-gray-500 rounded-md  hover:bg-gray-100"
+          >
+            ...
+          </a>
+          <a
+            href="#"
+            className="px-2 py-1 text-sm text-gray-500 rounded-md  hover:bg-gray-100"
+          >
+            12
+          </a>
+          <a
+            href="#"
+            className="px-2 py-1 text-sm text-gray-500 rounded-md  hover:bg-gray-100"
+          >
+            13
+          </a>
+          <a
+            href="#"
+            className="px-2 py-1 text-sm text-gray-500 rounded-md  hover:bg-gray-100"
+          >
+            14
+          </a>
+        </div>
+        <a
+          href="#"
+          className="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100  "
+        >
+          <span>Next</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-5 h-5 rtl:-scale-x-100"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+            />
+          </svg>
+        </a>
+      </div>
+    </section>
   );
 }
 

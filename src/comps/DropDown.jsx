@@ -65,8 +65,7 @@ function DropDown({ setFiliere, setProf, setModule, route, nom, size }) {
                 <h1
                   key={i}
                   onClick={() => {
-                    console.log(setModule);
-                    setSelected(e);
+                      setSelected(e);
                     setFiliere &&
                       setFiliere((v) => ({ ...v, ["idFiliere"]: e.id }));
                     setModule &&

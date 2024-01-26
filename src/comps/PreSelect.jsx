@@ -50,7 +50,7 @@ function PreSelect() {
                       <input
                         placeholder="checkbox"
                         type="checkbox"
-                        className="focus:opacity-100 checkbox opacity-0 absolute cursor-pointer w-full h-full"
+                        className=" accent-teal-600  cursor-pointer w-full h-full"
                       />
                       <div className="check-icon hidden bg-teal-700 text-white rounded-lg-sm">
                         <svg
@@ -104,54 +104,19 @@ function PreSelect() {
                   <div className="flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width={20}
-                      height={20}
-                      viewBox="0 0 20 20"
                       fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6"
                     >
                       <path
-                        d="M7.5 5H16.6667"
-                        stroke="#52525B"
-                        strokeWidth="1.25"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                      />
-                      <path
-                        d="M7.5 10H16.6667"
-                        stroke="#52525B"
-                        strokeWidth="1.25"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M7.5 15H16.6667"
-                        stroke="#52525B"
-                        strokeWidth="1.25"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M4.16669 5V5.00667"
-                        stroke="#52525B"
-                        strokeWidth="1.25"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M4.16669 10V10.0067"
-                        stroke="#52525B"
-                        strokeWidth="1.25"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M4.16669 15V15.0067"
-                        stroke="#52525B"
-                        strokeWidth="1.25"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
                       />
                     </svg>
+
                     <p className="text-sm leading-none text-gray-600 ml-2">
                       04/07
                     </p>
@@ -161,55 +126,104 @@ function PreSelect() {
                   <div className="flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width={20}
-                      height={20}
-                      viewBox="0 0 20 20"
                       fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6"
                     >
                       <path
-                        d="M3.33331 17.4998V6.6665C3.33331 6.00346 3.59671 5.36758 4.06555 4.89874C4.53439 4.4299 5.17027 4.1665 5.83331 4.1665H14.1666C14.8297 4.1665 15.4656 4.4299 15.9344 4.89874C16.4033 5.36758 16.6666 6.00346 16.6666 6.6665V11.6665C16.6666 12.3295 16.4033 12.9654 15.9344 13.4343C15.4656 13.9031 14.8297 14.1665 14.1666 14.1665H6.66665L3.33331 17.4998Z"
-                        stroke="#52525B"
-                        strokeWidth="1.25"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                      />
-                      <path
-                        d="M10 9.1665V9.17484"
-                        stroke="#52525B"
-                        strokeWidth="1.25"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M6.66669 9.1665V9.17484"
-                        stroke="#52525B"
-                        strokeWidth="1.25"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M13.3333 9.1665V9.17484"
-                        stroke="#52525B"
-                        strokeWidth="1.25"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                        d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
                       />
                     </svg>
+
                     <p className="text-sm leading-none text-gray-600 ml-2">
                       23
                     </p>
                   </div>
                 </td>
 
-                <td className="pl-5">
-                  <button className="py-3 px-3 text-sm focus:outline-none leading-none text-red-700 bg-red-100 rounded-lg">
-                    Due today at 18:00
-                  </button>
+                <td className="pl-2">
+                  <div class="py-2 border  shrink-0  w-full border-gray-200 outline-none text-gray-800 px-2 placeholder:text-gray-400  rounded-lg text-sm  shadow-sm ">
+                    <div className=" flex gap-1">
+                      <span className=" inline-flex gap-2 rounded-full bg-teal-100 text-teal-800 uppercase p-1 px-2 items-center text-xs">
+                        dts{" "}
+                        <span className=" text-[11px] bg-white rounded-full px-2">
+                          33%
+                        </span>{" "}
+                        <span className=" overflow-auto hover:bg-white rounded-full transition-all cursor-pointer">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-4 h-4"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M6 18 18 6M6 6l12 12"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <span className=" inline-flex gap-2 rounded-full bg-teal-100 text-teal-800 uppercase p-1 px-2 items-center text-xs">
+                        bts{" "}
+                        <span className=" text-[11px] bg-white rounded-full px-2">
+                          33%
+                        </span>{" "}
+                        <span className=" overflow-auto hover:bg-white rounded-full transition-all cursor-pointer">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-4 h-4"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M6 18 18 6M6 6l12 12"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <span className=" inline-flex gap-2 rounded-full bg-teal-100 text-teal-800 uppercase p-1 px-2 items-center text-xs">
+                        dut{" "}
+                        <span className=" text-[11px] bg-white rounded-full px-2">
+                          33%
+                        </span>{" "}
+                        <span className=" overflow-auto hover:bg-white rounded-full transition-all cursor-pointer">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-4 h-4"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M6 18 18 6M6 6l12 12"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
                 </td>
-                <td className="pl-4">
-                  <button className="focus:ring-2 focus:ring-offset-2 focus:ring-red-300 text-sm leading-none text-gray-600 py-3 px-5 bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none">
-                    View
-                  </button>
+                <td className="pl-1">
+                  <div>
+                    <input
+                      placeholder="Note..."
+                      className=" text-sm border outline-none text-gray-600 py-2.5 shadow-sm rounded-lg px-2 w-[70px] "
+                    />
+                  </div>
                 </td>
                 <td>
                   <div className="relative px-5 pt-2">

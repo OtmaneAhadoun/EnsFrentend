@@ -9,6 +9,7 @@ import PreSelect from "./comps/PreSelect";
 import ProfTable from "./comps/ProfTable";
 import TableModule from "./comps/TableModule";
 import ListeFiliere from "./comps/ListeFiliere";
+import ListeStudents from "./comps/ListeStudents";
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/professeurs" element={<ProfTable></ProfTable>}></Route>
           <Route path="/filieres" element={<ListeFiliere />}></Route>
           <Route path="/modules" element={<TableModule></TableModule>}></Route>
+          <Route path="/students" element={<ListeStudents></ListeStudents>}></Route>
         </Route>
       </Routes>
     </>

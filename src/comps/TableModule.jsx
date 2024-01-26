@@ -10,7 +10,6 @@ function TableModule() {
   const [show, setShow] = useState(false);
   const [LoadData, setLoadData] = useState(false);
   const [toast, setToast] = useState(false);
-  console.log("fill", data);
   useEffect(() => {
     (async () => {
       setLoad(true);
@@ -27,92 +26,124 @@ function TableModule() {
     setShow((oldValue) => !oldValue);
   };
   return (
-    <div class="bg-whit relative mt-3 min-h-[300px] bg-white overflow-x-auto  flex flex-col text-gray-700  shadow rounded-lg p-2 ">
-      <AnimatePresence>
-        {toast && <Toast message={"Module"} off={setToast}></Toast>}
-        {show && (
-          <AddModule
-            done={setLoadData}
-            setToast={setToast}
-            off={showAddForm}
-          ></AddModule>
-        )}
-      </AnimatePresence>
-      <div className=" flex justify-between  items-center">
-        <h3 class="text-xl leading-none font-bold text-gray-900 my-4">
-          Liste Module
-        </h3>
-        <button
-          onClick={showAddForm}
-          className="focus:outline-none font-semibold focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition duration-150 ease-in-out hover:bg-teal-700 bg-teal-600 rounded-lg text-white px-4 py-2.5 text-sm"
-        >
-          Ajouter Module
-        </button>
-      </div>
-      <table class="min-w-full divide-y  divide-gray-200">
-        {data.length != 0 && (
-          <thead class="bg-gray-50 w-full text-black rounded-lg">
-            <tr>
-              <th
-                scope="col"
-                class="p-2   text-left capitalize text-sm font-medium   tracking-wider"
-              >
-                Module
-              </th>
-              <th
-                scope="col"
-                class="p-2   text-left    text-sm font-medium  capitalize tracking-wider"
-              >
-                Filiere
-              </th>
-              <th
-                scope="col"
-                class="p-2 text-left text-sm font-medium     capitalize tracking-wider"
-              >
-                Mass Horaire
-              </th>
-            </tr>
-          </thead>
-        )}
-        <tbody class="bg-white h-full  ">
-          {load ? (
-            <div className=" my-44">
-              <Load></Load>
+    <>
+      {load ? (
+        <div className="min-h-[calc(100vh-170px)]">
+          <Load></Load>
+        </div>
+      ) : (
+        <div className=" flex  flex-col py-2 overflow-hidden ">
+          <button
+            onClick={showAddForm}
+            className="focus:outline-none mr-1 font-semibold focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition duration-150 ease-in-out hover:bg-teal-700 bg-teal-600 rounded-lg text-white px-4 py-2 self-end text-sm"
+          >
+            Ajouter Module
+          </button>
+          <AnimatePresence>
+            {toast && <Toast message={"Module"} off={setToast}></Toast>}
+            {show && (
+              <AddModule
+                done={setLoadData}
+                setToast={setToast}
+                off={showAddForm}
+              ></AddModule>
+            )}
+          </AnimatePresence>
+
+          <section className=" mt-2">
+            <div className="flex flex-col">
+              <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                  <div className="overflow-hidden border border-gray-200  md:rounded-lg">
+                    <table className="min-w-full divide-y divide-gray-200 ">
+                      <thead className=" capitalize text-gray-800 bg-white ">
+                        <tr>
+                          <th
+                            scope="col"
+                            className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right  "
+                          >
+                            Nom de Module
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right  "
+                          >
+                            nom De filiere
+                          </th>
+
+                          <th
+                            scope="col"
+                            className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right  "
+                          >
+                            masse horaire{" "}
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right  "
+                          >
+                            Operations
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="bg-white divide-y divide-gray-200  ">
+                        {data.map((e, i) => (
+                          <tr key={i}>
+                            <td className="px-4 py-4 text-sm ">
+                              <h4 className="text-gray-700 max-w-[280px] ">
+                                {e.nom}
+                              </h4>
+                            </td>
+                            <td className="px-4 py-4 text-sm ">
+                              <p className="text-gray-500 ">{e.nomFiliere}</p>
+                            </td>
+
+                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                              <div className="flex items-center">
+                                <span className="mr-2">{e.massHoraire}h</span>
+                                <div className="relative w-full">
+                                  <div className="overflow-hidden h-2 text-xs flex rounded bg-teal-200">
+                                    <div
+                                      style={{ width: `${e.massHoraire}%` }}
+                                      className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-teal-500"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+
+                            <td className="px-4 py-4 flex gap-1  text-sm items-center ">
+                              <div className="inline capitalize text-xs px-3 py-1  font-normal rounded-lg text-emerald-500 gap-x-2 bg-emerald-100/60 ">
+                                Status Activee
+                              </div>
+                              <button className="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg  hover:bg-gray-100">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  strokeWidth="1.5"
+                                  stroke="currentColor"
+                                  className="w-6 h-6"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
+                                  />
+                                </svg>
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
-          ) : data.length ? (
-            data.map((e) => {
-              console.log(e);
-              return (
-                <tr className="even:bg-gray-50 text-gray-700 odd:bg-white">
-                  <td
-                    title={e.nom}
-                    class="p-2 py-4    capitalize  text-[15px]   font-normal"
-                  >
-                    {e.nom}
-                  </td>
-                  <td
-                    title={e.nomFiliere}
-                    class="p-2 py-4    capitalize text-[15px]   font-normal"
-                  >
-                    {e.nomFiliere}
-                  </td>
-                  <td
-                    title={e.massHoraire }
-                    class="p-2 py-4 capitalize     text-[15px] font-normal text-black"
-                  >
-                    {e.massHoraire}
-                  </td>
-                </tr>
-              );
-            })
-          ) : (
-            <h1 className="text-center h-[140px]  inline-flex items-center w-full justify-center my-auto text-sm capitalize">
-              Aucun Filiere trouvé...??
-            </h1>
-          )}
-        </tbody>
-      </table>
-    </div>
+          </section>
+        </div>
+      )}
+    </>
   );
 }
 

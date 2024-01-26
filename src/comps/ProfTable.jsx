@@ -14,6 +14,7 @@ function ProfTable() {
 
   useEffect(() => {
     (async () => {
+      setLoad(true)
       try {
         const { data: profs } = await Maxios.get("/professeur");
         setData(profs);
@@ -27,79 +28,124 @@ function ProfTable() {
     setShow((oldValue) => !oldValue);
   };
   return (
-    <div class=" flex flex-col mt-3 min-h-[300px] relative gap-2 grow  xl:gap-4">
-      <AnimatePresence>
-        {toast && <Toast message={"Professeur"} off={setToast}></Toast>}
-        {show && (
-          <AddProff
-            done={setLoadData}
-            setToast={setToast}
-            off={showAddForm}
-          ></AddProff>
-        )}
-      </AnimatePresence>
-      <div class="bg-white flex flex-col shadow rounded-lg  p-3 pb-1 grow ">
-        <div class="flex items-center justify-between ">
-          <h3 class="text-xl font-bold leading-none text-gray-900">
-            All Professeur
-          </h3>
-          <div className="flex gap-2">
-            <button
-              href="#"
-              class="text-sm font-medium text-teal-600 hover:bg-gray-100 rounded-lg inline-flex items-center p-2.5 px-2.5"
-            >
-              View all
-            </button>
-            <button
-              onClick={showAddForm}
-              href="#"
-              className="focus:outline-none font-semibold focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition duration-150 ease-in-out hover:bg-teal-700 bg-teal-600 rounded-lg text-white px-4 py-2 text-sm"
-            >
-              Ajouter Professeur
-            </button>
-          </div>
+    <>
+      {load ? (
+        <div className="min-h-[calc(100vh-170px)]">
+          <Load></Load>
         </div>
-        <div class="  h-full pt-2 ">
-          <ul class="divide-y grow h-full min-h-[64px] divide-gray-200">
-            {load ? (
-              <Load></Load>
-            ) : data.length ? (
-              data.map((e, i) => {
-                return (
-                  <li key={i} class=" py-2 ">
-                    <div class="flex items-center space-x-2.5">
-                      <div class="flex h-14 shrink-0">
-                        <img
-                          class="h-12  object-cover w-12  border-teal-600 rounded-xl"
-                          src={
-                            "http://localhost:8000/storage/images/" + e.image
-                          }
-                        />
-                      </div>
-                      <div class="flex-1 ">
-                        <p class="text-sm capitalize font-medium text-gray-900 truncate">
-                          {e.nom + " " + e.prenom}
-                        </p>
-                        <p class="text-sm underline text-gray-500 truncate">
-                          {e.email}
-                        </p>
-                      </div>
-                      <button class="inline-flex text-sm items-center capitalize font-medium hover:bg-gray-100 rounded-lg px-3 p-2 text-gray-900">
-                        view
-                      </button>
-                    </div>
-                  </li>
-                );
-              })
-            ) : (
-              <h1 className="text-center h-16 inline-flex items-center w-full justify-center my-auto text-sm capitalize">
-                Aucun professeur trouvé...??
-              </h1>
+      ) : (
+        <div class=" flex flex-col min-h-[calc(100vh-170px)] overflow-hidden ">
+          <button
+            onClick={showAddForm}
+            className="focus:outline-none mr-1 mt-2 font-semibold focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition duration-150 ease-in-out hover:bg-teal-700 bg-teal-600 rounded-lg text-white px-4 py-2 self-end text-sm"
+          >
+            Ajouter Professeur
+          </button>
+          <AnimatePresence>
+            {toast && <Toast message={"Professeur"} off={setToast}></Toast>}
+            {show && (
+              <AddProff
+                done={setLoadData}
+                setToast={setToast}
+                off={showAddForm}
+              ></AddProff>
             )}
-          </ul>
+          </AnimatePresence>
+          <section className=" mt-2">
+            <div className="flex flex-col">
+              <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                  <div className="overflow-hidden border border-gray-200  md:rounded-lg">
+                    <table className="min-w-full divide-y divide-gray-200 ">
+                      <thead className=" capitalize border-b text-gray-800 bg-white ">
+                        <tr className="font-medium text-[0.95rem] capitalize">
+                          <th className="px-4  py-3.5 text-sm font-medium text-left rtl:text-right  ">
+                            nom et prenom
+                          </th>
+
+                          <th className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right  ">
+                          adresse
+                          </th>
+                          <th className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right  ">
+                            Année de joindre
+                          </th>
+                          <th className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right  ">
+                            contact{" "}
+                          </th>
+                          <th className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right  ">
+                            operation
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {data.map((e) => {
+                          return (
+                            <tr className="border-b bg-white  last:border-b-0">
+                              <td className="px-4 py-2 text-sm ">
+                                <div className="flex items-center">
+                                  <div className="relative inline-block shrink-0 rounded-2xl me-3">
+                                    <img
+                                      src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
+                                      className="w-[45px] h-[45px] inline-block shrink-0 rounded-2xl"
+                                      alt=""
+                                    />
+                                  </div>
+                                  <div className="flex flex-col text-sm justify-start">
+                                    <a className=" font-medium">
+                                      {}
+                                      {e.nom}
+                                      {" " + e.prenom}
+                                    </a>
+                                    <p className=" text-gray-400 underline ">{e.email}</p>
+                                  </div>
+                                </div>
+                              </td>
+                              <td className="px-4 py-4 text-gray-600 text-sm  max-w-[250px] ">
+                                {e.adresse}
+                              </td>
+
+                              <td className="px-4 py-4 text-gray-600 text-sm ">
+                                2023-08-23
+                              </td>
+                              <td className="px-4  py-4 text-sm ">
+                                <span>Tel:{e.num_telephone}</span>
+                              </td>
+                              <td className="px-4 py-6   ">
+                                <div className="flex gap-1  text-sm items-center">
+                                  <div className="inline capitalize h-full text-xs px-3 py-1  font-normal rounded-lg text-emerald-500 gap-x-2 bg-emerald-100/60 ">
+                                    Status Activee
+                                  </div>
+                                  <button className="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg  hover:bg-gray-100">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      strokeWidth="1.5"
+                                      stroke="currentColor"
+                                      className="w-6 h-6"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
+                                      />
+                                    </svg>
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
 

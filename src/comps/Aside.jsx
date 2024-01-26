@@ -154,7 +154,7 @@ function Aside({ off, isOpen }) {
                   <span class="ml-3 flex-1 whitespace-nowrap">Liste Module</span>
                 </a>
               </NavLink>
-              <NavLink to={'etudients'}>
+              <NavLink to={'students'}>
                 <a
                   href="#"
                   class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group "
