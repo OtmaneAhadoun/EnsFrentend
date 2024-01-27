@@ -1,16 +1,16 @@
 import React from "react";
 
-function ListeDash() {
+function ListeDash({ data }) {
   return (
     <div class="mt-4 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
       <div class="bg-white shadow rounded-lg p-4  ">
         <div class="flex items-center">
           <div class="flex-shrink-0">
             <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">
-              2,340
+              {data.inscription}
             </span>
             <h3 class="text-base capitalize  font-normal text-gray-500">
-              Total d'etudients{" "}
+              Total d'étudiants{" "}
             </h3>
           </div>
 
@@ -40,10 +40,10 @@ function ListeDash() {
         <div class="flex items-center">
           <div class="flex-shrink-0">
             <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">
-              5,355
+              {data.professeurs}
             </span>
             <h3 class="text-base capitalize font-normal text-gray-500">
-              total de professeur{" "}
+              Total des professeurs{" "}
             </h3>
           </div>
           <div class="ml-5 w-0  inline-flex items-center justify-end flex-1 text-green-500 text-base font-bold">
@@ -72,10 +72,10 @@ function ListeDash() {
         <div class="flex items-center">
           <div class="flex-shrink-0">
             <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-900">
-              385
+              {data.filieres}
             </span>
             <h3 class="text-base capitalize font-normal text-gray-500">
-              Total de filieres
+              Total des filières{" "}
             </h3>
           </div>
           <div class="ml-5 w-0  inline-flex items-center justify-end flex-1 text-green-500 text-base font-bold">

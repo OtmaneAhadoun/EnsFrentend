@@ -11,7 +11,6 @@ function Aside({ off, isOpen }) {
   });
   return (
     <aside
-
       // transition={{ duration: 0.2 }}
       class={`fixed ${
         isOpen ? "flex" : "hidden"
@@ -79,99 +78,134 @@ function Aside({ off, isOpen }) {
                   </div>
                 </div>
               </li>
-              < NavLink  to={'/'} >
+              <NavLink to={"/"}>
                 <div
                   href="#"
-                  class="text-base bg-transparent  text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+                  class="text-base bg-transparent  text-gray-600 font-medium rounded-lg flex items-center p-2 hover:bg-gray-100 group"
                 >
                   <svg
-                    class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-6 h-6"
                   >
-                    <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
-                    <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z"
+                    />
                   </svg>
-                  <span class="ml-3">Dashboard</span>
+
+                  <a class="ml-3">Tableau de bord</a>
                 </div>
-              </  NavLink >
-              <NavLink to={'professeurs'}>
+              </NavLink>
+              <NavLink to={"professeurs"}>
                 <a
                   href="#"
                   target="_blank"
-                  class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group "
+                  class="text-base text-gray-600 font-medium rounded-lg hover:bg-gray-100 flex items-center p-2 group "
                 >
                   <svg
-                    class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-6 h-6"
                   >
-                    <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
+                    />
                   </svg>
+
                   <span class="ml-3 flex-1 whitespace-nowrap capitalize">
-                    Liste Professeur
+                    Liste Professeurs
                   </span>
                 </a>
               </NavLink>
-              <NavLink to={'filieres'}>
+              <NavLink to={"filieres"}>
                 <a
                   href="#"
                   target="_blank"
-                  class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group "
+                  class="text-base text-gray-600 font-medium rounded-lg hover:bg-gray-100 flex items-center p-2 group "
                 >
                   <svg
-                    class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-6 h-6"
                   >
-                    <path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path>
-                    <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
+                    />
                   </svg>
-                  <span class="ml-3 flex-1 whitespace-nowrap">Liste Filiere</span>
 
+                  <span class="ml-3 flex-1 whitespace-nowrap">
+                    Liste Filieres
+                  </span>
                 </a>
               </NavLink>
-              <NavLink to={'modules'}>
+              <NavLink to={"modules"}>
                 <a
                   href="#"
-                  class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group "
+                  class="text-base text-gray-600 font-medium rounded-lg hover:bg-gray-100 flex items-center p-2 group "
                 >
                   <svg
-                    class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-6 h-6"
                   >
                     <path
-                      fill-rule="evenodd"
-                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                      clip-rule="evenodd"
-                    ></path>
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+                    />
                   </svg>
-                  <span class="ml-3 flex-1 whitespace-nowrap">Liste Module</span>
+
+                  <span class="ml-3 flex-1 whitespace-nowrap">
+                    Liste Modules
+                  </span>
                 </a>
               </NavLink>
-              <NavLink to={'students'}>
+              <NavLink to={"students"}>
                 <a
                   href="#"
-                  class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group "
+                  class="text-base text-gray-600 font-medium rounded-lg hover:bg-gray-100 flex items-center p-2 group "
                 >
                   <svg
-                    class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-6 h-6"
                   >
                     <path
-                      fill-rule="evenodd"
-                      d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
-                      clip-rule="evenodd"
-                    ></path>
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
+                    />
                   </svg>
-                  <span class="ml-3 flex-1 whitespace-nowrap">Liste Etudient</span>
+
+                  <span class="ml-3 flex-1 truncate capitalize">
+                    étudiants inscrits
+                  </span>
                 </a>
               </NavLink>
             </ul>

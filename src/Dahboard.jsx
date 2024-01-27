@@ -52,24 +52,18 @@ function Dahboard() {
             >
               <main>
                 <div class="p-3">
-                <Outlet />
+                  <Outlet />
 
                   {/* <ListeDash></ListeDash>
                   <TimePicher></TimePicher>
                   <PreSelect /> */}
 
-                  
-                    {/* <ProfTable></ProfTable> */}
-                  
+                  {/* <ProfTable></ProfTable> */}
                 </div>
               </main>
               {/* <Footer></Footer> */}
               <p class="text-center text-sm text-gray-500 my-10">
-                &copy; 2024-2024
-                <a href="#" class="hover:underline" target="_blank">
-                  Ecole Normale Superieur
-                </a>
-                . All rights reserved.
+                &copy; 2024-2024 École Normale Supérieure. Tous droits réservés.
               </p>
             </div>
           </div>

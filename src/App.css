@@ -23,6 +23,10 @@
   border-radius: 8px;
   color: #000 !important;
 }
+.active a{
+
+  color: #000 !important;
+}
 .active svg {
 
   color: #000 !important;

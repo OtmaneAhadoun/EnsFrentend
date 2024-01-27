@@ -37,7 +37,7 @@ function TableModule() {
             onClick={showAddForm}
             className="focus:outline-none mr-1 font-semibold focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition duration-150 ease-in-out hover:bg-teal-700 bg-teal-600 rounded-lg text-white px-4 py-2 self-end text-sm"
           >
-            Ajouter Module
+            Ajouter un module{" "}
           </button>
           <AnimatePresence>
             {toast && <Toast message={"Module"} off={setToast}></Toast>}

@@ -202,7 +202,6 @@ function InitSession({ off, data }) {
                 nom={"Professeur"}
                 size={"w-[100%] left-0"}
                 route={"professeur"}
-                
               ></DropDown>
             </div>
             {/* <input
@@ -216,7 +215,7 @@ function InitSession({ off, data }) {
               htmlFor="expiry"
               className="text-black  text-sm font-bold leading-tight tracking-normal"
             >
-              Depart De La Sceance
+              Horaire{" "}
             </label>
             <div className=" flex gap-2 py-2 items-center">
               <input

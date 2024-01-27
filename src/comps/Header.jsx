@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Profile from "./Profile";
+import logo from '../assets/images/logo_2.png'
 import { AnimatePresence } from "framer-motion";
 function Header({ openSide, user }) {
   const [showProfile, setShowProfile] = useState(false);
@@ -12,7 +13,7 @@ function Header({ openSide, user }) {
               onClick={() => openSide((v) => !v)}
               aria-expanded="true"
               aria-controls="sidebar"
-              class="lg:hidden mr-2 text-gray-600 hover:text-gray-900 cursor-pointer p-2 hover:bg-gray-100 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 rounded"
+              class="lg:hidden mr-4 text-gray-600 hover:text-gray-900 cursor-pointer p-2 hover:bg-gray-100 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 rounded"
             >
               <svg
                 id="toggleSidebarMobileHamburger"
@@ -46,11 +47,11 @@ function Header({ openSide, user }) {
               class="text-xl m-auto h-full font-bold flex items-center lg:ml-2.5"
             >
               <img
-                src="https://demo.themesberg.com/windster/images/logo.svg"
-                class="h-6 mr-2"
-                alt="Windster Logo"
+                src={logo}
+                class=" h-auto my-1 w-44 mr-2 -ml-6 "
+                alt="Ecole Normale Supérieure"
               />
-              <span class="self-center whitespace-nowrap">ENS</span>
+              {/* <span class="self-center lg:block hidden whitespace-nowrap">Ecole Normale Supérieure</span> */}
             </a>
           </div>
         </div>
@@ -77,7 +78,7 @@ function Header({ openSide, user }) {
           <input
             type="text"
             class="py-2 border transition-all  border-gray-200 outline-none text-gray-800 px-3 placeholder:text-gray-400 ps-10 pe-14 block w-full rounded-lg text-sm  shadow-sm "
-            placeholder="Search...."
+            placeholder="Recherche...."
             data-hs-overlay="#hs-pro-dnsm"
           />
           <div class="absolute inset-y-0 end-0 flex items-center pointer-events-none z-20 pe-3">

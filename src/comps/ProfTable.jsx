@@ -14,7 +14,7 @@ function ProfTable() {
 
   useEffect(() => {
     (async () => {
-      setLoad(true)
+      setLoad(true);
       try {
         const { data: profs } = await Maxios.get("/professeur");
         setData(profs);
@@ -39,7 +39,7 @@ function ProfTable() {
             onClick={showAddForm}
             className="focus:outline-none mr-1 mt-2 font-semibold focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition duration-150 ease-in-out hover:bg-teal-700 bg-teal-600 rounded-lg text-white px-4 py-2 self-end text-sm"
           >
-            Ajouter Professeur
+            Ajouter un professeur
           </button>
           <AnimatePresence>
             {toast && <Toast message={"Professeur"} off={setToast}></Toast>}
@@ -64,7 +64,7 @@ function ProfTable() {
                           </th>
 
                           <th className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right  ">
-                          adresse
+                            adresse
                           </th>
                           <th className="px-4 py-3.5 text-sm font-medium text-left rtl:text-right  ">
                             Année de joindre
@@ -96,7 +96,9 @@ function ProfTable() {
                                       {e.nom}
                                       {" " + e.prenom}
                                     </a>
-                                    <p className=" text-gray-400 underline ">{e.email}</p>
+                                    <p className=" text-gray-400 underline ">
+                                      {e.email}
+                                    </p>
                                   </div>
                                 </div>
                               </td>

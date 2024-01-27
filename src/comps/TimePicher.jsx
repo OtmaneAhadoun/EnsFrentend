@@ -6,18 +6,17 @@ function TimePicher() {
   const [checked, setCheked] = useState({ one: true, two: false });
   const componentRef = useRef();
   const daysOfWeek = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+    "Lundi",
+    "Mardi",
+    "Mercredi",
+    "Jeudi",
+    "Vendredi",
+    "Samedi",
+];
 
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
-  console.log(checked);
   return (
     <div className="flex flex-col shadow mt-3 bg-white rounded-lg ">
       <div
@@ -104,7 +103,7 @@ function TimePicher() {
         </div>
 
         <div className=" flex max-w-36 bg-black">
-          <DropDown route="filiere" nom={"Filiere"}></DropDown>
+          <DropDown route="filiere" nom={"Filière"}></DropDown>
         </div>
 
         <ReactToPrint
@@ -114,7 +113,7 @@ function TimePicher() {
               onClick={handlePrint}
               className="focus:outline-none capitalize m-1.5 font-semibold focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition duration-150 ease-in-out hover:bg-teal-700 bg-teal-600 rounded-lg text-white px-4 py-2.5 text-sm"
             >
-              Save and print
+              Enregistrer Et Imprimer
             </button>
           )}
           documentTitle="emploi du temps"
