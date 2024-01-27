@@ -21,7 +21,7 @@ const Auth = () => {
   (async () => {
     try {
       await Maxios.get("/user");
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       console.error("Error fetching data:", error);
       setIsLogged(false);
@@ -37,7 +37,7 @@ const Auth = () => {
     await Maxios.get("http://localhost:8000/sanctum/csrf-cookie");
     try {
       await Maxios.post("/login", data);
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       console.log("catch", error);
       setError({ One: true, Two: true });

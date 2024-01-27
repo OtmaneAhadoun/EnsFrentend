@@ -11,21 +11,22 @@ import TableModule from "./comps/TableModule";
 import ListeFiliere from "./comps/ListeFiliere";
 import ListeStudents from "./comps/ListeStudents";
 import Home from "./Home";
+import LandingPage from "./LandingPage";
+import NotFound from "./NotFound";
 
 export default function App() {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Auth></Auth>} />
+        <Route path="/login" element={<Auth />} />
+        <Route path="/ens.um5" element={<LandingPage />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Dashboard />}>
-          <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/professeurs" element={<ProfTable></ProfTable>}></Route>
-          <Route path="/filieres" element={<ListeFiliere />}></Route>
-          <Route path="/modules" element={<TableModule></TableModule>}></Route>
-          <Route
-            path="/students"
-            element={<ListeStudents></ListeStudents>}
-          ></Route>
+          <Route index element={<Home />} />
+          <Route path="professeurs" element={<ProfTable />} />
+          <Route path="filieres" element={<ListeFiliere />} />
+          <Route path="modules" element={<TableModule />} />
+          <Route path="students" element={<ListeStudents />} />
         </Route>
       </Routes>
     </>

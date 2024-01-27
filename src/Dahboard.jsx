@@ -17,7 +17,10 @@ function Dahboard() {
   const [user, setUser] = useState(null);
   const [Loading, setLoading] = useState(true);
   const [openSide, setOpenSide] = useState(false);
-  const navigate = useNavigate(); // Get the navigate function
+  const navigate = useNavigate(); 
+
+    document.body.style.fontSize = "100%";
+
   useEffect(() => {
     (async () => {
       try {
@@ -34,7 +37,7 @@ function Dahboard() {
     })();
   }, []);
   return (
-    <div className=" w-full scrollbar-thin scrollbar-thumb-teal-600  font-webFont min-h-screen">
+    <div className=" w-full text-[100%] scrollbar-thin scrollbar-thumb-teal-600  font-webFont min-h-screen">
       {Loading ? (
         <Load></Load>
       ) : (

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Profile from "./Profile";
-import logo from '../assets/images/logo_2.png'
 import { AnimatePresence } from "framer-motion";
 function Header({ openSide, user }) {
   const [showProfile, setShowProfile] = useState(false);
@@ -47,7 +46,7 @@ function Header({ openSide, user }) {
               class="text-xl m-auto h-full font-bold flex items-center lg:ml-2.5"
             >
               <img
-                src={logo}
+                src='./images/logo_2.png'
                 class=" h-auto my-1 w-44 mr-2 -ml-6 "
                 alt="Ecole Normale Supérieure"
               />
