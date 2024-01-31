@@ -21,7 +21,7 @@ const Auth = () => {
   (async () => {
     try {
       await Maxios.get("/user");
-      navigate("/dashboard");
+      navigate("/");
     } catch (error) {
       console.error("Error fetching data:", error);
       setIsLogged(false);
