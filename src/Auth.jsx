@@ -37,7 +37,7 @@ const Auth = () => {
     await Maxios.get("http://localhost:8000/sanctum/csrf-cookie");
     try {
       await Maxios.post("/login", data);
-      navigate("/dashboard");
+      navigate("/");
     } catch (error) {
       console.log("catch", error);
       setError({ One: true, Two: true });
