@@ -34,7 +34,7 @@ function StudentLine({ e, i }) {
         {e.diplome}
       </td>
 
-      <td className="px-4 py-4 text-sm grow text-gray-500  ">{e.idFiliere}</td>
+      <td className="px-4 py-4 text-sm grow text-gray-500  max-w-[200px] truncate ">{e.nomFiliere}</td>
       <td className="px-4 items-center flex gap-1 py-4 text-sm font-medium text-gray-700 ">
         <div className="inline-flex truncate items-center px-3 py-1 rounded-lg gap-x-2 text-orange-500 bg-orange-100/60 ">
           <svg
