@@ -55,7 +55,7 @@ function FiliereLine({ e ,i}) {
           onClick={() => setOpen((v) => !v)} name={"open"+i}
           className="px-1 cursor-pointer relative py-1 text-gray-500 transition-colors duration-200 rounded-lg  hover:bg-gray-100"
         >
-          <AnimatePresence>{open && <Actions i={i} off={setOpen} />}</AnimatePresence>
+          <AnimatePresence>{open && <Actions status={'Activer'} i={i} off={setOpen} />}</AnimatePresence>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
