@@ -13,6 +13,8 @@ import ListeStudents from "./comps/ListeStudents";
 import Home from "./Home";
 import LandingPage from "./LandingPage";
 import NotFound from "./NotFound";
+import Inscription from "./Inscription";
+import Content from "./Content";
 
 export default function App() {
   return (
@@ -20,6 +22,7 @@ export default function App() {
       <Routes>
         <Route path="/login" element={<Auth />} />
         <Route path="/ens.um5" element={<LandingPage />} />
+        <Route path="/ens.um5/inscription" element={<Inscription />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Dashboard />}>
           <Route index element={<Home />} />

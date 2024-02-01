@@ -76,10 +76,13 @@ const Auth = () => {
                   </div>
                   <div class="ms-3">
                     <p class="text-sm text-gray-700 font-semibold capitalize">
-                      Email or password Incorecct
+                      Adresse e-mail ou mot de passe incorrect
                     </p>
                   </div>
-                  <span onClick={()=>setUnauth(false)} className="absolute bottom-[10px] inline-flex items-center justify-center w-8 mt-auto right-2  h-8 hover:bg-gray-100 transition-all duration-100 rounded-full  cursor-pointer">
+                  <span
+                    onClick={() => setUnauth(false)}
+                    className="absolute bottom-[10px] inline-flex items-center justify-center w-8 mt-auto right-2  h-8 hover:bg-gray-100 transition-all duration-100 rounded-full  cursor-pointer"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -104,7 +107,7 @@ const Auth = () => {
                 htmlFor="email"
                 className="block mb-1 capitalize text-sm font-semibold leading-6 text-black"
               >
-                Email address
+                Adresse e-mail
               </label>
               <input
                 id="email"
@@ -122,7 +125,7 @@ const Auth = () => {
                 htmlFor="password"
                 className="block mb-1 capitalize text-sm font-semibold leading-6 text-black"
               >
-                Password
+                Mot de passe
               </label>
               <input
                 name="password"
@@ -140,23 +143,23 @@ const Auth = () => {
               type="submit"
               className="relative bg-teal-600  overflow-hidden max-h-11 h-full justify-center rounded-lg text-sm font-semibold inline-flex items-center   text-white hover:bg-teal-700 w-full"
             >
-              {!Loading ? <span>Sign in to account</span> : <Load></Load>}
+              {!Loading ? <span>Se connecter au compte</span> : <Load></Load>}
             </button>
           </form>
           <p className=" mt-6 block w-full max-w-[310px] ">
             <a href="/password/reset" className="text-sm hover:underline">
-              Forgot password?
+              Mot de passe oublié ?
             </a>
           </p>
           <div class="relative mt-7 shrink-0 w-full max-w-[310px]">
             <div class=" text-sm w-full  h-fit  text-black flex items-center justify-between">
-              <p class="text-left">Don't have an account?</p>
+              <p class="text-left">Vous n'avez pas de compte ?</p>
               <a
                 class="inline-flex justify-center rounded-lg text-sm font-semibold py-2.5 px-4 text-slate-900 ring-1 ring-slate-900/10 hover:ring-slate-900/20"
                 href="/all-access"
               >
-                <span>
-                  Get access <span aria-hidden="true">→</span>
+                <span className=" text-xs">
+                  Obtenir l'accès <span aria-hidden="true">→</span>
                 </span>
               </a>
             </div>

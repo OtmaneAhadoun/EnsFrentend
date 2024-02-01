@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Profile from "./Profile";
 import { AnimatePresence } from "framer-motion";
+import { NavLink } from "react-router-dom";
 function Header({ openSide, user }) {
   const [showProfile, setShowProfile] = useState(false);
   return (
@@ -42,7 +43,7 @@ function Header({ openSide, user }) {
               </svg>
             </button>
             <a
-              href="#"
+              href="/ens.um5"
               class="text-xl m-auto h-full font-bold flex items-center lg:ml-2.5"
             >
               <img
@@ -50,7 +51,6 @@ function Header({ openSide, user }) {
                 class=" h-auto my-1 w-44 mr-2 -ml-6 "
                 alt="Ecole Normale Supérieure"
               />
-              {/* <span class="self-center lg:block hidden whitespace-nowrap">Ecole Normale Supérieure</span> */}
             </a>
           </div>
         </div>

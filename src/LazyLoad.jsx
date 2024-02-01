@@ -93,7 +93,7 @@ function LazyLoad() {
             <div className=" bg-gray-200 rounded-lg h-5 w-5"></div>
             <div className=" w-64 h-7 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-10 ml-4 h-7 rounded-lg bg-gray-200 animate-pulse"></div>
-            <div className=" w-96 ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
+            <div className="  grow ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-40 ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-7 ml-4 h-3 rounded-lg bg-gray-200 animate-pulse"></div>
           </div>
@@ -103,7 +103,7 @@ function LazyLoad() {
             <div className=" bg-gray-200 rounded-lg h-5 w-5"></div>
             <div className=" w-64 h-7 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-10 ml-4 h-7 rounded-lg bg-gray-200 animate-pulse"></div>
-            <div className=" w-96 ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
+            <div className="  grow ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-40 ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-7 ml-4 h-3 rounded-lg bg-gray-200 animate-pulse"></div>
           </div>
@@ -113,7 +113,7 @@ function LazyLoad() {
             <div className=" bg-gray-200 rounded-lg h-5 w-5"></div>
             <div className=" w-64 h-7 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-10 ml-4 h-7 rounded-lg bg-gray-200 animate-pulse"></div>
-            <div className=" w-96 ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
+            <div className="  grow ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-40 ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-7 ml-4 h-3 rounded-lg bg-gray-200 animate-pulse"></div>
           </div>
@@ -123,7 +123,7 @@ function LazyLoad() {
             <div className=" bg-gray-200 rounded-lg h-5 w-5"></div>
             <div className=" w-64 h-7 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-10 ml-4 h-7 rounded-lg bg-gray-200 animate-pulse"></div>
-            <div className=" w-96 ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
+            <div className="  grow ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-40 ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-7 ml-4 h-3 rounded-lg bg-gray-200 animate-pulse"></div>
           </div>
@@ -133,7 +133,7 @@ function LazyLoad() {
             <div className=" bg-gray-200 rounded-lg h-5 w-5"></div>
             <div className=" w-64 h-7 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-10 ml-4 h-7 rounded-lg bg-gray-200 animate-pulse"></div>
-            <div className=" w-96 ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
+            <div className="  grow ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-40 ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-7 ml-4 h-3 rounded-lg bg-gray-200 animate-pulse"></div>
           </div>
@@ -143,7 +143,7 @@ function LazyLoad() {
             <div className=" bg-gray-200 rounded-lg h-5 w-5"></div>
             <div className=" w-64 h-7 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-10 ml-4 h-7 rounded-lg bg-gray-200 animate-pulse"></div>
-            <div className=" w-96 ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
+            <div className="  grow  ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-40 ml-4 h-10 rounded-lg bg-gray-200 animate-pulse"></div>
             <div className=" w-7 ml-4 h-3 rounded-lg bg-gray-200 animate-pulse"></div>
           </div>

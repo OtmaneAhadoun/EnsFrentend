@@ -3,8 +3,17 @@ import Maxios from "../assets/maxios";
 import { memo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Load from "./Load";
-function DropDown({ setFiliere, setProf, setModule, route, nom, size }) {
+function DropDown({
+  setFiliere,
+  setProf,
+  setModule,
+  route,
+  nom,
+  size,
+  setFiliereInsc,
+}) {
   const [open, setOpen] = useState();
+  const [color, setColor] = useState("text-gray-400");
   const [data, setData] = useState([]);
   const [selected, setSelected] = useState({ nom });
   const [load, setLoad] = useState(true);
@@ -29,9 +38,16 @@ function DropDown({ setFiliere, setProf, setModule, route, nom, size }) {
         type="button"
         class=" py-2.5 truncate  justify-between px-4 inline-flex w-full items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-black shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none "
       >
-        <span className=" capitalize w-[150px] text-left truncate">
-          {selected.nom} {nom == "Professeur" ? selected.prenom : ""}
+        <span
+          className={`${
+            nom === "Filiere"
+              ? `w-full ${color} text-left font-normal`
+              : "capitalize w-[150px] text-left truncate"
+          }`}
+        >
+          {selected.nom} {nom === "Professeur" ? selected.prenom : ""}
         </span>
+
         <svg
           class="hs-dropdown-open:rotate-180 w-4 h-4"
           xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +81,8 @@ function DropDown({ setFiliere, setProf, setModule, route, nom, size }) {
                 <h1
                   key={i}
                   onClick={() => {
-                      setSelected(e);
+                    setColor("text-black");
+                    setSelected(e);
                     setFiliere &&
                       setFiliere((v) => ({ ...v, ["idFiliere"]: e.id }));
                     setModule &&
@@ -80,7 +97,8 @@ function DropDown({ setFiliere, setProf, setModule, route, nom, size }) {
                         evening: { ...v.evening, prof: e.nom + " " + e.prenom },
                         morning: { ...v.morning, prof: e.nom + " " + e.prenom },
                       }));
-
+                    setFiliereInsc &&
+                      setFiliereInsc((v) => ({ ...v, ["idFiliere"]: e.id }));
                     setOpen(false);
                   }}
                   title={e.nom}

@@ -37,8 +37,10 @@ function AddProff({ done, setToast, off }) {
   };
 
   const getFile = ({ target }) => {
-    const blob = URL.createObjectURL(target.files[0]);
-    setData((v) => ({ ...v, [target.name]: target.files[0], file: blob }));
+    if (target.files[0]) {
+      const blob = URL.createObjectURL(target.files[0]);
+      setData((v) => ({ ...v, [target.name]: target.files[0], file: blob }));
+    }
   };
   useEffect(() => {
     document.documentElement.style.overflow = "hidden";

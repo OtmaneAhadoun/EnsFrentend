@@ -85,8 +85,8 @@ function ProfTable() {
                                 <div className="flex items-center">
                                   <div className="relative inline-block shrink-0 rounded-2xl me-3">
                                     <img
-                                      src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/img-49-new.jpg"
-                                      className="w-[45px] h-[45px] inline-block shrink-0 rounded-2xl"
+                                      src="https://www.jobat.be//-/media/jobat/jobat-be/articles/professor.png?mw=906&hash=7F88C3DFEB3C6CAD2FEADE26B0A2AEA4"
+                                      className="w-[45px] h-[45px] bg-contain inline-block shrink-0 rounded-2xl"
                                       alt=""
                                     />
                                   </div>
